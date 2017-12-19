@@ -15,9 +15,9 @@ Note that these scripts *do not* remove length-1 sentences, as was done in the p
 Do the pre-processing
 --------------
 ```
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/dev
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/test
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/train
+./preprocess_conll2012.sh /path/to/conll-2012/dev
+./preprocess_conll2012.sh /path/to/conll-2012/test
+./preprocess_conll2012.sh /path/to/conll-2012/train
 ```
 
 Combine into single files

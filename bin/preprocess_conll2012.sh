@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# You'll want to change this if you're not running from the project's root directory
 CLEARNLP=`pwd`
 CLEARLIB=$CLEARNLP/lib
 CLASSPATH=$CLEARLIB/clearnlp-3.1.2.jar:$CLEARLIB/args4j-2.0.29.jar:$CLEARLIB/log4j-1.2.17.jar:$CLEARLIB/hppc-0.6.1.jar:$CLEARLIB/xz-1.5.jar:$CLEARLIB/clearnlp-dictionary-3.2.jar:$CLEARLIB/clearnlp-general-en-pos-3.2.jar:$CLEARLIB/clearnlp-global-lexica-3.1.jar:.

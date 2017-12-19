@@ -12,18 +12,57 @@ The scripts assume you have already extracted the CoNLL-2012 split from the Onto
 
 Note that these scripts *do not* remove length-1 sentences, as was done in the paper cited above. We leave you to do that if you choose.
 
+Requirements
+--------------
+- I ran these with Java 8
+
+Currently these scripts write to the `/path/to/conll-2012` directories below. Happy to accept patches that will write files to
+somewhere else.
+
+Download ClearNLP
+--------------
+```
+./bin/download_clearNLP.sh
+```
+
 Do the pre-processing
 --------------
 ```
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/dev
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/test
-./preprocess_conll2012.sh ~/canvas/data/conll-2012/train
+./bin/preprocess_conll2012.sh /path/to/conll-2012/dev
+./bin/preprocess_conll2012.sh /path/to/conll-2012/test
+./bin/preprocess_conll2012.sh /path/to/conll-2012/train
 ```
 
 Combine into single files
 --------------
 ```
-for f in `find $HOME/canvas/data/conll-2012/train -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-train.txt; done
-for f in `find $HOME/canvas/data/conll-2012/dev -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-dev.txt; done
-for f in `find $HOME/canvas/data/conll-2012/test -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-test.txt; done
+for f in `find /path/to/conll-2012/train -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-train.txt; done
+for f in `find /path/to/conll-2012/dev -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-dev.txt; done
+for f in `find /path/to/conll-2012/test -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-test.txt; done
+```
+
+File format
+-------------
+TODO describe
+```
+nw/wsj/24/wsj_2437      0       0       For     IN      IN      7       prep    _       -       -       -       -       *       (ARGM-TMP*      -
+nw/wsj/24/wsj_2437      0       1       all     DT      DT      1       pobj    _       -       -       -       -       *       *       (0)
+nw/wsj/24/wsj_2437      0       2       of      IN      IN      2       prep    _       -       -       -       -       *       *       (0
+nw/wsj/24/wsj_2437      0       3       1988    CD      CD      3       pobj    _       -       -       -       -       (DATE)  *)      (0)|0)
+nw/wsj/24/wsj_2437      0       4       ,       ,       ,       7       punct   _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       5       Dassault        NNP     NNP     7       dep     _       -       -       -       -       (ORG)   (ARG0*) (1)
+nw/wsj/24/wsj_2437      0       6       had     VBD     VBD     0       root    _       have    03      1       -       *       (V*)    -
+nw/wsj/24/wsj_2437      0       7       group   NN      NN      9       compound        _       group   -       -       -       *       (ARG1*  (1)
+nw/wsj/24/wsj_2437      0       8       profit  NN      NN      7       dobj    _       profit  -       1       -       *       *       -
+nw/wsj/24/wsj_2437      0       9       of      IN      IN      9       prep    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       10      428     CD      CD      12      compound        _       -       -       -       -       (MONEY* *       -
+nw/wsj/24/wsj_2437      0       11      million CD      CD      13      nummod  _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       12      francs  NNS     NNS     10      pobj    _       -       -       -       -       *)      *       -
+nw/wsj/24/wsj_2437      0       13      on      IN      IN      9       prep    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       14      revenue NN      NN      14      pobj    _       revenue -       1       -       *       *       -
+nw/wsj/24/wsj_2437      0       15      of      IN      IN      15      prep    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       16      18.819  CD      CD      18      compound        _       -       -       -       -       (MONEY* *       -
+nw/wsj/24/wsj_2437      0       17      billion CD      CD      19      nummod  _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2437      0       18      francs  NNS     NNS     16      pobj    _       -       -       -       -       *)      *)      -
+nw/wsj/24/wsj_2437      0       19      .       .       .       7       punct   _       -       -       -       -       *       *       -
 ```

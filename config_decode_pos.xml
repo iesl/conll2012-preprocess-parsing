@@ -1,0 +1,15 @@
+<configuration>
+    <language>english</language>
+    
+    <reader type="tsv">
+        <column index="2" field="form"/>
+    </reader>
+
+    <global>
+        <distributional_semantics>brown-rcv1.clean.tokenized-CoNLL03.txt-c1000-freq1.txt.xz</distributional_semantics>
+    </global>
+
+    <model>
+        <pos>general-en-pos.xz</pos>
+    </model>
+</configuration>

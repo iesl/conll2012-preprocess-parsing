@@ -12,6 +12,13 @@ The scripts assume you have already extracted the CoNLL-2012 split from the Onto
 
 Note that these scripts *do not* remove length-1 sentences, as was done in the paper cited above. We leave you to do that if you choose.
 
+Requirements
+--------------
+- I ran these with Java 8
+
+Currently these scripts write to the `/path/to/conll-2012` directories below. Happy to accept patches that will write files to
+somewhere else.
+
 Do the pre-processing
 --------------
 ```
@@ -23,7 +30,7 @@ Do the pre-processing
 Combine into single files
 --------------
 ```
-for f in `find $HOME/canvas/data/conll-2012/train -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-train.txt; done
-for f in `find $HOME/canvas/data/conll-2012/dev -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-dev.txt; done
-for f in `find $HOME/canvas/data/conll-2012/test -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-test.txt; done
+for f in `find /path/to/conll-2012/train -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-train.txt; done
+for f in `find /path/to/conll-2012/dev -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-dev.txt; done
+for f in `find /path/to/conll-2012/test -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-test.txt; done
 ```

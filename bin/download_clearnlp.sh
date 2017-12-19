@@ -17,7 +17,7 @@ curl -LO "http://search.maven.org/remotecontent?filepath=com/carrotsearch/hppc/0
 curl -LO "http://search.maven.org/remotecontent?filepath=org/tukaani/xz/1.5/xz-1.5.jar"
 
 # Dictionaries, needed for converting constituencies -> dependencies
-curl -JLO "http://search.maven.org/remotecontent?filepath=edu/emory/clir/clearnlp-dictionary/3.2/clearnlp-dictionary-3.2.jar"
+curl -LO "http://search.maven.org/remotecontent?filepath=edu/emory/clir/clearnlp-dictionary/3.2/clearnlp-dictionary-3.2.jar"
 
 # POS tagger model
 curl -LO "http://search.maven.org/remotecontent?filepath=edu/emory/clir/clearnlp-general-en-pos/3.2/clearnlp-general-en-pos-3.2.jar"

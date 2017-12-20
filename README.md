@@ -41,6 +41,12 @@ for f in `find /path/to/conll-2012/dev -type f -name "*\.parse\.dep\.combined"`;
 for f in `find /path/to/conll-2012/test -type f -name "*\.parse\.dep\.combined"`; do cat $f >> conll2012-test.txt; done
 ```
 
+Convert segments to BILOU encoding
+-------------
+```
+./bin/convert-bilou.sh /path/to/file
+```
+
 File format
 -------------
 TODO describe

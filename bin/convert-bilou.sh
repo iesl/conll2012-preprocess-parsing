@@ -15,7 +15,6 @@ tmpfile=`mktemp`
 bilou_file="$input_file.bilou"
 cp $input_file $bilou_file
 
-# Finally, paste the original file together with the dependency parses and auto pos tags
 for field in $fields_to_convert; do
     echo "Converting field $field of $(( max_field - 1 ))"
     bin/convert-bilou-single-field.sh $bilou_file $field > $tmpfile

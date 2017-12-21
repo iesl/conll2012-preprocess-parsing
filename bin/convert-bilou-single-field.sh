@@ -24,17 +24,17 @@ awk -v f="$field" \
         t="O"
       }
     }
-    if (t ~ "\\(.*" && t ~ ".*\\)"){
+    if (t ~ "^\\(.*" && t ~ ".*\\)$"){
       type=gensub(/\(([A-Za-z0-9-]*).*\)/, "\\1", 1, t)
       t="U-"type
     }
-    else if (t ~ "\\(.*"){
+    else if (t ~ "^\\(.*"){
       type=gensub(/\((.*)\*/, "\\1", 1, t)
       t="B-"type
       curr=type
       inside=1
     }
-    else if (t ~ ".*\\)"){
+    else if (t ~ ".*\\)$"){
       t=gensub(/(.*)\)/, "L-"curr, 1, t)
       inside=0
     }

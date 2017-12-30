@@ -26,6 +26,26 @@ nw/wsj/24/wsj_2400      0       24      price   NN      NN      26      compound
 nw/wsj/24/wsj_2400      0       25      report  NN      NN      22      pobj    _       report  -       -       -       *       *       *       *       *)      *)      -
 nw/wsj/24/wsj_2400      0       26      .       .       .       17      punct   _       -       -       -       -       *       *       *       *       *       *       -
                                                                         
+bc/phoenix/00/phoenix_0000      1       0       I       PRP     PRP     4       dep     _       -       -       -       Ye_daying       *       *       (ARG1(ARG0*))   (ARG0*) *       *       (108)
+bc/phoenix/00/phoenix_0000      1       1       did     VBD     VBD     4       aux     _       do      01      -       Ye_daying       *       (V*)    *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       2       n't     RB      RB      4       neg     _       -       -       -       Ye_daying       *       *       (ARGM-NEG*)     *       *       *       -
+bc/phoenix/00/phoenix_0000      1       3       dare    VB      VB      0       root    _       dare    01      1       Ye_daying       *       *       (V*)    *       *       *       -
+bc/phoenix/00/phoenix_0000      1       4       defend  VB      VB      4       xcomp   _       defend  01      1       Ye_daying       *       *       (ARG2*  (V*)    *       *       -
+bc/phoenix/00/phoenix_0000      1       5       myself  PRP     PRP     5       dobj    _       -       -       -       Ye_daying       *       *       *)      (ARG1*) *       *       (108)
+bc/phoenix/00/phoenix_0000      1       6       ,       ,       ,       4       punct   _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       7       so      CC      CC      4       cc      _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       8       I       PRP     PRP     11      dep     _       -       -       -       Ye_daying       *       *       *       *       *       (ARG1*) (108)
+bc/phoenix/00/phoenix_0000      1       9       just    RB      RB      11      advmod  _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       10      had     VBD     VBD     4       conj    _       have    02      12      Ye_daying       *       *       *       *       (V*)    *       -
+bc/phoenix/00/phoenix_0000      1       11      to      TO      TO      13      aux     _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       12      endure  VB      VB      11      xcomp   _       endure  01      2       Ye_daying       *       *       *       *       *       (V*)    -
+bc/phoenix/00/phoenix_0000      1       13      it      PRP     PRP     13      dobj    _       -       -       -       Ye_daying       *       *       *       *       *       (ARG2*) (8)
+bc/phoenix/00/phoenix_0000      1       14      for     IN      IN      13      prep    _       -       -       -       Ye_daying       *       *       *       *       *       (ARGM-TMP*      -
+bc/phoenix/00/phoenix_0000      1       15      quite   RB      PDT     18      advmod  _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       16      a       DT      DT      18      det     _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+bc/phoenix/00/phoenix_0000      1       17      while   NN      NN      15      pobj    _       -       -       -       Ye_daying       *       *       *       *       *       *)      -
+bc/phoenix/00/phoenix_0000      1       18      .       .       .       11      punct   _       -       -       -       Ye_daying       *       *       *       *       *       *       -
+
 mz/sinorama/10/ectb_1030        1       0       A       DT      DT      2       det     _       -       -       -       -       *       *       (ARG1*  (ARG0*  (ARG0(ARG0*     *       -
 mz/sinorama/10/ectb_1030        1       1       crowd   NN      NN      13      dep     _       crowd   -       -       -       *       *       *       *       *       *       -
 mz/sinorama/10/ectb_1030        1       2       of      IN      IN      2       prep    _       -       -       -       -       *       *       *       *       *       *       -

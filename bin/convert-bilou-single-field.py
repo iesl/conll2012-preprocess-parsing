@@ -4,9 +4,13 @@ import argparse
 arg_parser = argparse.ArgumentParser(description='Convert a field in CoNLL-2012 to BIO/BILOU format')
 arg_parser.add_argument('--input_file', type=str, help='File to process')
 arg_parser.add_argument('--field', type=int, help='Field in the file to process')
-arg_parser.add_argument('--bilou', type=bool, help='Whether to use BILOU encoding (BIO otherwise)', default=False)
+arg_parser.add_argument('--bilou', dest='bilou', help='Whether to use BILOU encoding (default BIO)', default=False, action='store_true')
+arg_parser.add_argument('--bio', dest='bilou', help='Whether to use BIO encoding (default)', default=False, action='store_false')
+
 
 args = arg_parser.parse_args()
+
+print("bilou: ", args.bilou)
 
 join_str = '/'
 # (R-ARG1*))
@@ -42,7 +46,7 @@ with open(args.input_file, 'r') as f:
                   close_labels = ["I-" + label_stack.pop(-1) for i in range(close_parens - 1)]
                 output_labels = output_labels[:len(output_labels) - (close_parens-1)] + [unit_label] + close_labels
               else:
-                label = label.strip("*)")
+                label = label.strip("*")
                 label_stack.append(label)
                 output_labels.append("B-" + label)
       new_label = join_str.join(output_labels)

@@ -6,7 +6,7 @@
 
 input_file=$1
 
-bilou="False"
+bilou_arg="--bio"
 
 max_field=`awk '{print NF}' $input_file | sort -n | tail -1`
 first_field=14
@@ -19,7 +19,7 @@ cp $input_file $bilou_file
 
 for field in $fields_to_convert; do
     echo "Converting field $field of $(( max_field - 1 ))"
-    python bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) --bilou $bilou > $tmpfile
+    python bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg > $tmpfile
     cp $tmpfile $bilou_file
 done
 

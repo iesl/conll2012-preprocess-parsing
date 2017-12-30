@@ -10,8 +10,6 @@ arg_parser.add_argument('--bio', dest='bilou', help='Whether to use BIO encoding
 
 args = arg_parser.parse_args()
 
-print("bilou: ", args.bilou)
-
 join_str = '/'
 # (R-ARG1*))
 with open(args.input_file, 'r') as f:

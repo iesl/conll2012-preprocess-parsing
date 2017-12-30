@@ -36,11 +36,11 @@ with open(args.input_file, 'r') as f:
               # if label[-1] == ")":
                 if args.bilou:
                   unit_label = "U-" + label.strip("*)")
+                  close_labels = ["L-" + label_stack.pop(-1) for i in range(close_parens - 1)]
                 else:
                   unit_label = "B-" + label.strip("*)")
-                close_labels = ["L-" + label_stack.pop(-1) for i in range(close_parens-1)]
-                if args.bilou:
-                  output_labels = output_labels[:len(output_labels) - (close_parens-1)] + [unit_label] + close_labels
+                  close_labels = ["I-" + label_stack.pop(-1) for i in range(close_parens - 1)]
+                output_labels = output_labels[:len(output_labels) - (close_parens-1)] + [unit_label] + close_labels
               else:
                 label = label.strip("*)")
                 label_stack.append(label)

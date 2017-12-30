@@ -1,0 +1,168 @@
+nw/wsj/24/wsj_2400      0       0       A       DT      DT      2       det     _       -       -       -       -       *       *       (R-ARG0(ARG0*   (R-ARG0(ARG0*   (ARG1*  (ARG0*  -
+nw/wsj/24/wsj_2400      0       1       rebound NN      NN      17      dep     _       rebound 01      1       -       *       (V*)    *)      *)      *       *       -
+nw/wsj/24/wsj_2400      0       2       in      IN      IN      2       prep    _       -       -       -       -       *       (ARG1*  *       *       *       *       -
+nw/wsj/24/wsj_2400      0       3       energy  NN      NN      5       compound        _       energy  -       1       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       4       prices  NNS     NNS     3       pobj    _       price   -       1       -       *       *)      *)      *)      *       *       -
+nw/wsj/24/wsj_2400      0       5       ,       ,       ,       2       punct   _       -       -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       6       which   WDT     WDT     9       dep     2:ref   -       -       -       -       *       (ARGM-ADJ*      (R-ARG0*)       (R-ARG0*)       *       *       -
+nw/wsj/24/wsj_2400      0       7       helped  VBD     VBD     9       aux     _       help    01      1       -       *       *       (V*)    *       *       *       -
+nw/wsj/24/wsj_2400      0       8       push    VB      VB      2       relcl   _       push    01      6.1     -       *       *       (ARG1*  (V*)    *       *       -
+nw/wsj/24/wsj_2400      0       9       up      RP      RP      9       prt     _       -       -       -       -       *       *       *       (ARG2*) *       *       -
+nw/wsj/24/wsj_2400      0       10      the     DT      DT      14      det     _       -       -       -       -       *       *       *       (ARG1*  *       *       (4
+nw/wsj/24/wsj_2400      0       11      producer        NN      NN      13      compound        _       -       -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       12      price   NN      NN      14      compound        _       price   -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       13      index   NN      NN      9       dobj    _       index   -       -       -       *       *)      *)      *)      *       *       4)
+nw/wsj/24/wsj_2400      0       14      ,       ,       ,       2       punct   _       -       -       -       -       *       *       *       *       *)      *)      -
+nw/wsj/24/wsj_2400      0       15      is      VBZ     VBZ     17      auxpass _       be      -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       16      expected        VBN     VBN     0       root    _       expect  01      1       -       *       *       *       *       (V*)    *       -
+nw/wsj/24/wsj_2400      0       17      to      TO      TO      19      aux     _       -       -       -       -       *       *       *       *       (C-ARG1*        *       -
+nw/wsj/24/wsj_2400      0       18      do      VB      VB      17      xcomp   _       do      02      1       -       *       *       *       *       *       (V*)    -
+nw/wsj/24/wsj_2400      0       19      the     DT      DT      21      det     _       -       -       -       -       *       *       *       *       *       (ARG1*  -
+nw/wsj/24/wsj_2400      0       20      same    JJ      JJ      19      dobj    _       -       -       -       -       *       *       *       *       *       *)      -
+nw/wsj/24/wsj_2400      0       21      in      IN      IN      19      prep    _       -       -       -       -       *       *       *       *       *       (ARGM-LOC*      -
+nw/wsj/24/wsj_2400      0       22      the     DT      DT      26      det     _       -       -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       23      consumer        NN      NN      25      compound        _       -       -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       24      price   NN      NN      26      compound        _       price   -       -       -       *       *       *       *       *       *       -
+nw/wsj/24/wsj_2400      0       25      report  NN      NN      22      pobj    _       report  -       -       -       *       *       *       *       *)      *)      -
+nw/wsj/24/wsj_2400      0       26      .       .       .       17      punct   _       -       -       -       -       *       *       *       *       *       *       -
+                                                                        
+mz/sinorama/10/ectb_1030        1       0       A       DT      DT      2       det     _       -       -       -       -       *       *       (ARG1*  (ARG0*  (ARG0(ARG0*     *       -
+mz/sinorama/10/ectb_1030        1       1       crowd   NN      NN      13      dep     _       crowd   -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       2       of      IN      IN      2       prep    _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       3       500     CD      CD      6       quantmod        _       -       -       -       -       (CARDINAL)      (ARG0*  *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       4       to      IN      TO      6       quantmod        _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       5       600     CD      CD      7       nummod  _       -       -       -       -       (CARDINAL)      *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       6       Taiwanese       JJ      NNPS    3       pobj    _       -       -       -       -       (NORP)  *)      *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       7       living  VBG     VBG     7       acl     _       live    01      2       -       *       (V*)    *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       8       in      IN      IN      8       prep    _       -       -       -       -       *       (ARGM-LOC*      *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       9       the     DT      DT      12      det     _       -       -       -       -       (GPE*   *       *       *       *       *       (22
+mz/sinorama/10/ectb_1030        1       10      United  NNP     NNP     12      compound        _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       11      States  NNP     NNP     9       pobj    _       -       -       -       -       *)      *)      *)      *)      *))     *       22)
+mz/sinorama/10/ectb_1030        1       12      showed  VBD     VBD     0       root    _       show    02      2       -       *       *       (V*)    *       *       *       -
+mz/sinorama/10/ectb_1030        1       13      up      RP      RP      13      prt     _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       14      to      TO      TO      16      aux     _       -       -       -       -       *       *       (ARGM-PRP*      *       *       *       -
+mz/sinorama/10/ectb_1030        1       15      greet   VB      VB      13      xcomp   _       greet   01      1       -       *       *       *       (V*)    *       *       -
+mz/sinorama/10/ectb_1030        1       16      the     DT      DT      18      det     _       -       -       -       -       *       *       *       (ARG1*  *       *       (39
+mz/sinorama/10/ectb_1030        1       17      president       NN      NN      16      dobj    _       president       -       2       -       *       *       *       *)      *       *       39)
+mz/sinorama/10/ectb_1030        1       18      at      IN      IN      16      prep    _       -       -       -       -       *       *       *       (ARGM-LOC*      *       *       -
+mz/sinorama/10/ectb_1030        1       19      his     PRP$    PRP$    21      poss    _       -       -       -       -       *       *       *       *       *       *       (39)
+mz/sinorama/10/ectb_1030        1       20      hotel   NN      NN      19      pobj    _       -       -       -       -       *       *       *       *)      *       *       -
+mz/sinorama/10/ectb_1030        1       21      and     CC      CC      16      cc      _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       22      protest VB      NN      16      conj    _       protest 01      1       -       *       *       *       *       (V*)    *       -
+mz/sinorama/10/ectb_1030        1       23      against IN      IN      23      prep    _       -       -       -       -       *       *       *       *       (ARG1*  *       -
+mz/sinorama/10/ectb_1030        1       24      the     DT      DT      27      det     _       -       -       -       -       (ORG*   *       *       *       *       (ARG1*  (22
+mz/sinorama/10/ectb_1030        1       25      US      NNP     NNP     27      compound        _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       26      government      NN      NN      30      dep     _       government      -       1       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       27      's      POS     POS     27      case    _       -       -       -       -       *)      *       *       *       *       *)      22)
+mz/sinorama/10/ectb_1030        1       28      "       ``      ``      30      punct   _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       29      caving  VBG     VBG     24      pcomp   _       cave    02      4       -       *       *       *       *       *       (V*)    -
+mz/sinorama/10/ectb_1030        1       30      in      RP      RP      30      prt     _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       31      to      IN      IN      30      prep    _       -       -       -       -       *       *       *       *       *       (ARGM-GOL*      -
+mz/sinorama/10/ectb_1030        1       32      Beijing NNP     NNP     32      pobj    _       -       -       -       -       (GPE)   *       *       *       *       *)      (12)
+mz/sinorama/10/ectb_1030        1       33      at      IN      IN      30      prep    _       -       -       -       -       *       *       *       *       *       (ARGM-MNR*      -
+mz/sinorama/10/ectb_1030        1       34      the     DT      DT      36      det     _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       35      expense NN      NN      34      pobj    _       expense -       2       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       36      of      IN      IN      36      prep    _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       37      Taiwan  NNP     NNP     37      pobj    _       -       -       -       -       (GPE)   *       *)      *       *)      *)      (0)
+mz/sinorama/10/ectb_1030        1       38      .       .       .       13      punct   _       -       -       -       -       *       *       *       *       *       *       -
+mz/sinorama/10/ectb_1030        1       39      "       ''      ''      13      punct   _       -       -       -       -       *       *       *       *       *       *       -
+
+nw/xinhua/02/chtb_0240  0       14      to      IN      IN      10      prep    _       -       -       -       -       *       *       *       (ARGM-GOL*      *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       15      the     DT      DT      18      det     _       -       -       -       -       (ORG*   *       *       *       *       *       *       *       *       *       (2
+nw/xinhua/02/chtb_0240  0       16      Straits NNPS    NNPS    18      compound        _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       17      Foundation      NNP     NNP     15      pobj    _       -       -       -       -       *)      *       *       *)      *       *       *       *       *       *       2)
+nw/xinhua/02/chtb_0240  0       18      which   WDT     WDT     21      dep     _       -       -       -       -       *       *       *       (ARGM-ADV(R-ARG1*)      (R-ARG0*)       (R-ARG0*)       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       19      seriously       RB      RB      21      advmod  _       -       -       -       -       *       *       *       *       (ARGM-EXT*)     (ARGM-MNR*)     *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       20      hurts   VBZ     VBZ     10      ccomp   _       hurt    01      3       -       *       *       *       *       (V*)    *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       21      feelings        NNS     NNS     21      dobj    _       feeling -       7       -       *       *       *       *       (ARG1*  *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       22      of      IN      IN      22      prep    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       23      compatriots     NNS     NNS     23      pobj    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       24      of      IN      IN      24      prep    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       25      both    DT      DT      27      det     _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       (7
+nw/xinhua/02/chtb_0240  0       26      sides   NNS     NNS     25      pobj    _       side    -       3       -       *       *       *       *       *)      *       *       *       *       *       7)
+nw/xinhua/02/chtb_0240  0       27      and     CC      CC      21      cc      _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       28      breaks  VBZ     VBZ     21      conj    _       break   01      3       -       *       *       *       *       *       (V*)    *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       29      the     DT      DT      32      det     _       -       -       -       -       *       *       *       *       *       (ARG1*  *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       30      harmonious      JJ      JJ      32      amod    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       31      atmosphere      NN      NN      29      dobj    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       32      on      IN      IN      32      prep    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       33      both    DT      DT      35      det     _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       (7
+nw/xinhua/02/chtb_0240  0       34      sides   NNS     NNS     33      pobj    _       side    -       3       -       *       *       *       *)      *       *)      *       *       *       *       7)
+nw/xinhua/02/chtb_0240  0       35      ,       ,       ,       10      punct   _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       36      so      IN      IN      40      mark    _       -       -       -       -       *       *       *       (ARGM-PRP*      *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       37      as      IN      IN      40      mark    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       38      to      TO      TO      40      aux     _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       39      attract VB      VB      10      advcl   _       attract 01      1       -       *       *       *       *       *       *       (V*)    *       *       *       -
+nw/xinhua/02/chtb_0240  0       40      the     DT      DT      42      det     _       -       -       -       -       *       *       *       *       *       *       (ARG1*  *       *       *       -
+nw/xinhua/02/chtb_0240  0       41      attention       NN      NN      40      dobj    _       attention       -       2       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       42      of      IN      IN      42      prep    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       43      relevant        JJ      JJ      46      amod    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       44      Taiwanese       JJ      JJ      46      amod    _       -       -       -       -       (NORP)  *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       45      areas   NNS     NNS     43      pobj    _       area    -       1       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       46      on      IN      IN      42      prep    _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       47      compensating    VBG     VBG     47      pcomp   _       compensate      01      1       -       *       *       *       *       *       *       *       (V*)    *       *       -
+nw/xinhua/02/chtb_0240  0       48      for     IN      IN      48      prep    _       -       -       -       -       *       *       *       *       *       *       *       (ARG1*  *       *       -
+nw/xinhua/02/chtb_0240  0       49      losses  NNS     NNS     49      pobj    _       loss    -       3       -       *       *       *       *       *       *       *       *)      *       *       -
+nw/xinhua/02/chtb_0240  0       50      ,       ,       ,       48      punct   _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       51      finding VBG     VBG     48      conj    _       find    01      1       -       *       *       *       *       *       *       *       *       (V*)    *       -
+nw/xinhua/02/chtb_0240  0       52      those   DT      DT      52      dobj    _       -       -       -       -       *       *       *       *       *       *       *       *       (ARG1*  *       -
+nw/xinhua/02/chtb_0240  0       53      responsible     JJ      JJ      53      amod    _       -       -       -       -       *       *       *       *       *       *       *       *       *)      *       -
+nw/xinhua/02/chtb_0240  0       54      ,       ,       ,       52      punct   _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       55      and     CC      CC      52      cc      _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+nw/xinhua/02/chtb_0240  0       56      severely        RB      RB      58      advmod  _       -       -       -       -       *       *       *       *       *       *       *       *       *       (ARGM-MNR*)     -
+nw/xinhua/02/chtb_0240  0       57      punishing       VBG     VBG     52      conj    _       punish  01      1       -       *       *       *       *       *       *       *       *       *       (V*)    -
+nw/xinhua/02/chtb_0240  0       58      the     DT      DT      60      det     _       -       -       -       -       *       *       *       *       *       *       *       *       *       (ARG1*  -
+nw/xinhua/02/chtb_0240  0       59      assailants      NNS     NNS     58      dobj    _       -       -       -       -       *       *       *       *)      *       *       *)      *       *       *)      -
+nw/xinhua/02/chtb_0240  0       60      .       .       .       10      punct   _       -       -       -       -       *       *       *       *       *       *       *       *       *       *       -
+
+nw/wsj/24/wsj_2412      0       0       But     CC      CC      3       cc      _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       1       what    WP      WP      3       dep     _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       2       about   IN      IN      0       root    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       3       those   DT      DT      3       pobj    _       -       -       -       -       *       *       (33
+nw/wsj/24/wsj_2412      0       4       of      IN      IN      4       prep    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       5       us      PRP     PRP     5       pobj    _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       6       whose   WP$     WP$     8       poss    4:ref   -       -       -       -       *       (ARG1*  -
+nw/wsj/24/wsj_2412      0       7       views   NNS     NNS     11      dep     _       view    -       4       -       *       (R-ARG1*))      -
+nw/wsj/24/wsj_2412      0       8       are     VBP     VBP     11      auxpass _       are     -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       9       not     RB      RB      11      neg     _       -       -       -       -       *       (ARGM-NEG*)     -
+nw/wsj/24/wsj_2412      0       10      predetermined   VBN     VBN     4       relcl   _       predetermine    01      -       -       *       (V*)    -
+nw/wsj/24/wsj_2412      0       11      by      IN      IN      11      prep    _       -       -       -       -       *       (ARG0*  -
+nw/wsj/24/wsj_2412      0       12      formula NN      NN      12      pobj    _       formula -       2       -       *       *       -
+nw/wsj/24/wsj_2412      0       13      or      CC      CC      13      cc      _       -       -       -       -       *       *       -
+nw/wsj/24/wsj_2412      0       14      ideology        NN      NN      13      conj    _       -       -       -       -       *       *)      33)
+nw/wsj/24/wsj_2412      0       15      ?       .       .       3       punct   _       -       -       -       -       *       *       -
+
+nw/wsj/01/wsj_0102	0	0	A	DT	DT	5	det	_	-	-	-	-	*	(ARG1*	(R-ARG1*	(ARG2*	*	-
+nw/wsj/01/wsj_0102	0	1	medium	JJ	JJ	4	amod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	2	-	HYPH	HYPH	4	punct	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	3	sized	JJ	JJ	5	amod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	4	one	CD	CD	14	dep	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	5	in	IN	IN	5	prep	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	6	Brooklyn	NNP	NNP	6	pobj	_	-	-	-	-	(GPE)	*)	*)	*)	*	-
+nw/wsj/01/wsj_0102	0	7	,	,	,	10	punct	_	-	-	-	-	*	*	(ARGM-DIS*	*	*	-
+nw/wsj/01/wsj_0102	0	8	it	PRP	PRP	10	dep	_	-	-	-	-	*	(ARG0*)	*	*	*	(19)
+nw/wsj/01/wsj_0102	0	9	says	VBZ	VBZ	14	parataxis	_	say	01	1	-	*	(V*)	*	*	*	-
+nw/wsj/01/wsj_0102	0	10	,	,	,	10	punct	_	-	-	-	-	*	*	*)	*	*	-
+nw/wsj/01/wsj_0102	0	11	could	MD	MD	14	aux	_	-	-	-	-	*	(C-ARG1*	(ARGM-MOD(ARG1*)	*	*	-
+nw/wsj/01/wsj_0102	0	12	be	VB	VB	14	auxpass	_	be	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	13	altered	VBN	VBN	0	root	_	alter	01	1	-	*	*	(V*)	*	*	-
+nw/wsj/01/wsj_0102	0	14	to	TO	TO	16	aux	_	-	-	-	-	*	*	(ARG2*	*	*	-
+nw/wsj/01/wsj_0102	0	15	house	VB	VB	14	xcomp	_	house	01	1	-	*	*	*	(V*)	*	-
+nw/wsj/01/wsj_0102	0	16	up	IN	IN	19	quantmod	_	-	-	-	-	(CARDINAL*	*	*	(ARG1*	*	-
+nw/wsj/01/wsj_0102	0	17	to	TO	TO	19	quantmod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	18	1,000	CD	CD	20	nummod	_	-	-	-	-	*)	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	19	inmates	NNS	NNS	16	dobj	_	-	-	-	-	*	*	*	*)	*	-
+nw/wsj/01/wsj_0102	0	20	at	IN	IN	16	prep	_	-	-	-	-	*	*	*	(ARGM-MNR*	*	-
+nw/wsj/01/wsj_0102	0	21	a	DT	DT	24	det	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	22	lower	JJR	JJR	24	amod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	23	cost	NN	NN	21	pobj	_	cost	-	1	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	24	than	IN	IN	24	prep	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	25	building	VBG	VBG	25	pcomp	_	build	01	1	-	*	*	*	*	(V*)	-
+nw/wsj/01/wsj_0102	0	26	a	DT	DT	29	det	_	-	-	-	-	*	*	*	*	(ARG1*	-
+nw/wsj/01/wsj_0102	0	27	new	JJ	JJ	29	amod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	28	prison	NN	NN	26	dobj	_	-	-	-	-	*	*	*	*	*)	-
+nw/wsj/01/wsj_0102	0	29	in	IN	IN	26	prep	_	-	-	-	-	*	*	*	*	(ARGM-LOC*	-
+nw/wsj/01/wsj_0102	0	30	upstate	JJ	JJ	33	amod	_	-	-	-	-	*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	31	New	NNP	NNP	33	compound	_	-	-	-	-	(GPE*	*	*	*	*	-
+nw/wsj/01/wsj_0102	0	32	York	NNP	NNP	30	pobj	_	-	-	-	-	*)	*)	*))	*)	*)	-
+nw/wsj/01/wsj_0102	0	33	.	.	.	14	punct	_	-	-	-	-	*	*	*	*	*	-

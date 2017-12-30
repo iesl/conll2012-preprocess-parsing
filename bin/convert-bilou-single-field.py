@@ -9,6 +9,7 @@ arg_parser.add_argument('--bilou', type=bool, help='Whether to use BILOU encodin
 args = arg_parser.parse_args()
 
 join_str = '/'
+# (R-ARG1*))
 with open(args.input_file, 'r') as f:
   label_stack = []
   for line_num, line in enumerate(f):
@@ -30,11 +31,16 @@ with open(args.input_file, 'r') as f:
               if args.bilou:
                 output_labels = output_labels[:len(output_labels)-close_parens] + close_labels
             else:
-              if label[-1] == ")":
+              close_parens = label.count(")")
+              if close_parens > 0:
+              # if label[-1] == ")":
                 if args.bilou:
-                  output_labels.append("U-" + label.strip("*)"))
+                  unit_label = "U-" + label.strip("*)")
                 else:
-                  output_labels.append("B-" + label.strip("*)"))
+                  unit_label = "B-" + label.strip("*)")
+                close_labels = ["L-" + label_stack.pop(-1) for i in range(close_parens-1)]
+                if args.bilou:
+                  output_labels = output_labels[:len(output_labels) - (close_parens-1)] + [unit_label] + close_labels
               else:
                 label = label.strip("*)")
                 label_stack.append(label)

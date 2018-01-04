@@ -14,6 +14,7 @@ with open(args.input_file, 'r') as f:
     if line:
       split_line = line.strip().split('\t')
       props = split_line[args.first_prop_field:-1]
+      print(props)
       word = split_line[args.word_field] if "V(*)" in props else '-'
       new_fields = [word] + props
       new_line = '\t'.join(new_fields)

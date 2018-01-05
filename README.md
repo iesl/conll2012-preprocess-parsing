@@ -47,6 +47,13 @@ Convert segments to BILOU encoding
 ./bin/convert-bilou.sh /path/to/file
 ```
 
+Extracting props
+-------------
+This is useful for producing the gold file expected for `srl-eval.pl`
+```
+python bin/extract_conll_prop_file.py --input_file /path/to/conll2012-test.txt --word_field 3 --first_prop_field 14
+```
+
 File format
 -------------
 TODO describe

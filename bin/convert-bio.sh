@@ -18,7 +18,6 @@ bilou_file="$input_file.bio"
 cp $input_file $bilou_file
 
 for field in $fields_to_convert; do
-    wc -l $bilou_file
     echo "Converting field $field of $(( max_field - 1 ))"
     python bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg > $tmpfile
     cp $tmpfile $bilou_file

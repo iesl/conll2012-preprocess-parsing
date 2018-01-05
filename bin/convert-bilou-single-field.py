@@ -45,19 +45,18 @@ with open(args.input_file, 'r') as f:
             else:
               unit_label = "B-" + new_labels.pop()
             close_parens -= 1
-            unit_labels = [unit_label] + unit_labels #.append(unit_label)
+            unit_labels = [unit_label] + unit_labels
 
           # if there are additional close parens, close labels from label stack
           if args.bilou:
-            close_labels = ["L-" + label_stack.pop(-1) for i in range(close_parens)]
+            close_labels = ["L-" + label_stack.pop(-1) for i in range(close_parens)][::-1]
           else:
-            close_labels = ["I-" + label_stack.pop(-1) for i in range(close_parens)]
+            close_labels = ["I-" + label_stack.pop(-1) for i in range(close_parens)][::-1]
 
         # add unclosed new labels to label stack, and begin them
         start_labels = []
         while new_labels:
           new_label = new_labels.pop()
-          # start_labels.append("B-" + new_label)
           start_labels = ["B-" + new_label] + start_labels
           label_stack.append(new_label)
 

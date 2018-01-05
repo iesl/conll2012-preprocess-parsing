@@ -25,7 +25,42 @@ nw/wsj/24/wsj_2400      0       23      consumer        NN      NN      25      
 nw/wsj/24/wsj_2400      0       24      price   NN      NN      26      compound        _       price   -       -       -       *       *       *       *       *       *       -
 nw/wsj/24/wsj_2400      0       25      report  NN      NN      22      pobj    _       report  -       -       -       *       *       *       *       *)      *)      -
 nw/wsj/24/wsj_2400      0       26      .       .       .       17      punct   _       -       -       -       -       *       *       *       *       *       *       -
-                                                                        
+
+nw/wsj/01/wsj_0102      0       0       A       DT      5       det     _       -       -       -       -       *       (ARG1*  (R-ARG1*        (ARG2*  *       -
+nw/wsj/01/wsj_0102      0       1       medium  JJ      4       amod    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       2       -       HYPH    4       punct   _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       3       sized   JJ      5       amod    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       4       one     CD      14      dep     _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       5       in      IN      5       prep    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       6       Brooklyn        NNP     6       pobj    _       -       -       -       -       (GPE)   *)      *)      *)      *       -
+nw/wsj/01/wsj_0102      0       7       ,       ,       10      punct   _       -       -       -       -       *       *       (ARGM-DIS*      *       *       -
+nw/wsj/01/wsj_0102      0       8       it      PRP     10      dep     _       -       -       -       -       *       (ARG0*) *       *       *       (19)
+nw/wsj/01/wsj_0102      0       9       says    VBZ     14      parataxis       _       say     01      1       -       *       (V*)    *       *       *       -
+nw/wsj/01/wsj_0102      0       10      ,       ,       10      punct   _       -       -       -       -       *       *       *)      *       *       -
+nw/wsj/01/wsj_0102      0       11      could   MD      14      aux     _       -       -       -       -       *       (C-ARG1*        (ARGM-MOD(ARG1*)        *       *       -
+nw/wsj/01/wsj_0102      0       12      be      VB      14      auxpass _       be      -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       13      altered VBN     0       root    _       alter   01      1       -       *       *       (V*)    *       *       -
+nw/wsj/01/wsj_0102      0       14      to      TO      16      aux     _       -       -       -       -       *       *       (ARG2*  *       *       -
+nw/wsj/01/wsj_0102      0       15      house   VB      14      xcomp   _       house   01      1       -       *       *       *       (V*)    *       -
+nw/wsj/01/wsj_0102      0       16      up      IN      19      quantmod        _       -       -       -       -       (CARDINAL*      *       *       (ARG1*  *       -
+nw/wsj/01/wsj_0102      0       17      to      TO      19      quantmod        _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       18      1,000   CD      20      nummod  _       -       -       -       -       *)      *       *       *       *       -
+nw/wsj/01/wsj_0102      0       19      inmates NNS     16      dobj    _       -       -       -       -       *       *       *       *)      *       -
+nw/wsj/01/wsj_0102      0       20      at      IN      16      prep    _       -       -       -       -       *       *       *       (ARGM-MNR*      *       -
+nw/wsj/01/wsj_0102      0       21      a       DT      24      det     _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       22      lower   JJR     24      amod    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       23      cost    NN      21      pobj    _       cost    -       1       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       24      than    IN      24      prep    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       25      building        VBG     25      pcomp   _       build   01      1       -       *       *       *       *       (V*)    -
+nw/wsj/01/wsj_0102      0       26      a       DT      29      det     _       -       -       -       -       *       *       *       *       (ARG1*  -
+nw/wsj/01/wsj_0102      0       27      new     JJ      29      amod    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       28      prison  NN      26      dobj    _       -       -       -       -       *       *       *       *       *)      -
+nw/wsj/01/wsj_0102      0       29      in      IN      26      prep    _       -       -       -       -       *       *       *       *       (ARGM-LOC*      -
+nw/wsj/01/wsj_0102      0       30      upstate JJ      33      amod    _       -       -       -       -       *       *       *       *       *       -
+nw/wsj/01/wsj_0102      0       31      New     NNP     33      compound        _       -       -       -       -       (GPE*   *       *       *       *       -
+nw/wsj/01/wsj_0102      0       32      York    NNP     30      pobj    _       -       -       -       -       *)      *)      *))     *)      *)      -
+nw/wsj/01/wsj_0102      0       33      .       .       14      punct   _       -       -       -       -       *       *       *       *       *       -
+
 bc/phoenix/00/phoenix_0000      1       0       I       PRP     PRP     4       dep     _       -       -       -       Ye_daying       *       *       (ARG1(ARG0*))   (ARG0*) *       *       (108)
 bc/phoenix/00/phoenix_0000      1       1       did     VBD     VBD     4       aux     _       do      01      -       Ye_daying       *       (V*)    *       *       *       *       -
 bc/phoenix/00/phoenix_0000      1       2       n't     RB      RB      4       neg     _       -       -       -       Ye_daying       *       *       (ARGM-NEG*)     *       *       *       -
@@ -186,3 +221,15 @@ nw/wsj/01/wsj_0102	0	30	upstate	JJ	JJ	33	amod	_	-	-	-	-	*	*	*	*	*	-
 nw/wsj/01/wsj_0102	0	31	New	NNP	NNP	33	compound	_	-	-	-	-	(GPE*	*	*	*	*	-
 nw/wsj/01/wsj_0102	0	32	York	NNP	NNP	30	pobj	_	-	-	-	-	*)	*)	*))	*)	*)	-
 nw/wsj/01/wsj_0102	0	33	.	.	.	14	punct	_	-	-	-	-	*	*	*	*	*	-
+
+pt/nt/46/nt_4610        1       0       Eat     VB      VB      0       root    _       eat     01      -       1_Corinthians   *       (V*)    *       -
+pt/nt/46/nt_4610        1       1       any     DT      DT      3       det     _       -       -       -       1_Corinthians   *       (ARG1*  (ARG1*  (18
+pt/nt/46/nt_4610        1       2       meat    NN      NN      1       dobj    _       -       -       -       1_Corinthians   *       *       *)      -
+pt/nt/46/nt_4610        1       3       that    WDT     WDT     6       dep     3:ref   -       -       -       1_Corinthians   *       *       (R-ARG1(ARG0*)) -
+pt/nt/46/nt_4610        1       4       is      VBZ     VBZ     6       auxpass _       be      -       -       1_Corinthians   *       *       *       -
+pt/nt/46/nt_4610        1       5       sold    VBN     VBN     3       relcl   _       sell    01      -       1_Corinthians   *       *       (V*)    -
+pt/nt/46/nt_4610        1       6       in      IN      IN      6       prep    _       -       -       -       1_Corinthians   *       *       (ARGM-LOC*      -
+pt/nt/46/nt_4610        1       7       the     DT      DT      10      det     _       -       -       -       1_Corinthians   *       *       *       -
+pt/nt/46/nt_4610        1       8       meat    NN      NN      10      compound        _       -       -       -       1_Corinthians   *       *       *       -
+pt/nt/46/nt_4610        1       9       market  NN      NN      7       pobj    _       market  -       -       1_Corinthians   *       *)      *)      18)
+pt/nt/46/nt_4610        1       10      .       .       .       1       punct   _       -       -       -       1_Corinthians   *       *       *       -

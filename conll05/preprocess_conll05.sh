@@ -14,7 +14,7 @@ pos_config=$CLEARNLP/config_decode_pos.xml
 echo "Extracting trees from: $input_file"
 # word pos parse -> stick words, pos into parse as terminals
 zcat $input_file | \
-awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); print $1" "$3"\t"$2}' | \
+awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); print $2" "$1"\t"$3}' | \
 sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
 
 # Now convert those parses to dependencies

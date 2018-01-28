@@ -14,7 +14,7 @@ pos_config=$CLEARNLP/config_decode_pos.xml
 echo "Extracting trees from: $input_file"
 # word pos parse -> stick words, pos into parse as terminals
 zcat $input_file | \
-awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); print $2" "$1"\t"$3}' | \
+awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); gsub(/#/, "$", $1); gsub(/#/, "$", $2); print $2" "$1"\t"$3}' | \
 sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
 
 # Now convert those parses to dependencies
@@ -41,5 +41,5 @@ f_combined="$f_converted.combined"
 paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1"\t"$2}}' ) \
     <(awk '{print $2}' $f_pos) \
     <(awk '{if(NF == 0){print ""} else {print $6"\t"$7"\t"$9"\t_"}}' $f_converted) \
-    <(zcat $input_file | awk '{print $0}' | tr -s ' ' | cut -d' ' -f4- | sed 's/ /\t/g') \.
+    <(zcat $input_file | awk '{print $0}' | tr -s ' ' | cut -d' ' -f4- | sed 's/ /\t/g') \
 > $f_combined

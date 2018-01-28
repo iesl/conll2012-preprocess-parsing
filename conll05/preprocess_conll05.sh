@@ -42,4 +42,5 @@ paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1
     <(awk '{print $2}' $f_pos) \
     <(awk '{if(NF == 0){print ""} else {print $6"\t"$7"\t"$9"\t_"}}' $f_converted) \
     <(zcat $input_file | awk '{print $0}' | tr -s ' ' | cut -d' ' -f4- | sed 's/ /\t/g') \
+    | awk '{t=$12; $12=$13; $13=t; print}'
 > $f_combined

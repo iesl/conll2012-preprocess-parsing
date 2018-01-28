@@ -41,6 +41,6 @@ f_combined="$f_converted.combined"
 paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1"\t"$2}}' ) \
     <(awk '{print $2}' $f_pos) \
     <(awk '{if(NF == 0){print ""} else {print $6"\t"$7"\t"$9}}' $f_converted) \
-    <(zcat $input_file | awk '{print $5"\t"$6"\t_\t_\t"$4}' ) \
+    <(zcat $input_file | awk '{print $5"\t"$6"\t-\t-\t"$4}' ) \
     <(zcat $input_file | awk '{print $0"\t_"}' | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \
 > $f_combined

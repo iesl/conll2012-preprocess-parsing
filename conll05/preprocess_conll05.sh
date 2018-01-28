@@ -38,7 +38,7 @@ java -cp $CLASSPATH edu.emory.clir.clearnlp.bin.NLPDecode \
 f_converted="$input_file.parse.dep"
 f_pos="$input_file.parse.dep.cnlp"
 f_combined="$f_converted.combined"
-paste <(zcat $input_file | awk '{print "_\t_\t_\t"$1"\t"$2}' ) \
+paste <(zcat $input_file | awk '{if(NF > 0){print "_\t_\t_\t"$1"\t"$2} else {print ""}' ) \
     <(awk '{print $2}' $f_pos) \
     <(awk '{print $6"\t"$7"\t"$9"\t_"}' $f_converted) \
     <(zcat $input_file | awk '{print $0}' | tr -s ' ' | cut -d' ' -f4- | sed 's/ /\t/g') \.

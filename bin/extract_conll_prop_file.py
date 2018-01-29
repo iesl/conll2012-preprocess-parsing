@@ -17,7 +17,7 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
   for line in f:
     line = line.strip()
     if line:
-      split_line = line.strip().split('\t')
+      split_line = line.strip().split()
       props = split_line[args.first_prop_field:-1]
       word = split_line[args.word_field] if split_line[args.pred_field + args.pred_field_offset] != '-' else '-'
       new_fields = [word] + props

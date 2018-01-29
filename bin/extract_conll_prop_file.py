@@ -7,7 +7,9 @@ arg_parser.add_argument('--input_file', type=str, help='File to process')
 arg_parser.add_argument('--word_field', type=int, help='Field containing words')
 arg_parser.add_argument('--pred_field', type=int, help='Field containing predicates')
 arg_parser.add_argument('--pred_field_offset', type=int, help='Offset for predicates field', default=1)
-arg_parser.add_argument('--take_last', type=bool, help='Whether to take the last field', default=False)
+arg_parser.add_argument('--take_last', dest='take_last', action='store_true')
+arg_parser.add_argument('--no_take_last', dest='take_last', action='store_false')
+arg_parser.set_defaults(take_last=False)
 
 arg_parser.add_argument('--first_prop_field', type=int, help='First field containing props')
 

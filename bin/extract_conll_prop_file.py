@@ -1,5 +1,6 @@
 from __future__ import print_function
 import argparse
+import gzip
 
 arg_parser = argparse.ArgumentParser(description='Convert a CoNLL-2012 file to CoNLL-2005 prop format')
 arg_parser.add_argument('--input_file', type=str, help='File to process')
@@ -9,7 +10,8 @@ arg_parser.add_argument('--first_prop_field', type=int, help='First field contai
 
 args = arg_parser.parse_args()
 
-with open(args.input_file, 'r') as f:
+
+with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open(args.input_file, 'r') as f:
   for line in f:
     line = line.strip()
     if line:

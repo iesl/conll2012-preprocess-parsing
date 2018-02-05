@@ -13,6 +13,7 @@ pos_config=$CLEARNLP/config_decode_pos.xml
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Extracting trees from: $f"
+    # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$f.parse"
 done
 

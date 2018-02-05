@@ -9,8 +9,6 @@ arg_parser.add_argument('--pos_field', type=int, help='Field containing gold par
 arg_parser.add_argument('--head_field', type=int, help='Field containing gold parse head')
 arg_parser.add_argument('--label_field', type=int, help='Field containing gold parse label')
 arg_parser.add_argument('--id_field', type=int, help='Field containing word id')
-
-arg_parser.set_defaults(take_last=False)
 arg_parser.add_argument('--domain', dest='domain')
 arg_parser.set_defaults(domain='-')
 
@@ -33,7 +31,7 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
     if line:
       split_line = line.strip().split()
       domain = split_line[0].split('/')[0]
-      if domain == '-' or domain == args.domain:
+      if args.domain == '-' or domain == args.domain:
         print_newline = True
         word = split_line[args.word_field]
         id = split_line[args.id_field]

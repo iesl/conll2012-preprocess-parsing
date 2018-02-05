@@ -25,7 +25,7 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
     if line:
       split_line = line.strip().split()
       domain = split_line[0].split('/')[0]
-      if domain == '-' or domain == args.domain:
+      if args.domain == '-' or domain == args.domain:
         print_newline = True
         props = split_line[args.first_prop_field:] if args.take_last else split_line[args.first_prop_field:-1]
         word = split_line[args.word_field] if split_line[args.pred_field + args.pred_field_offset] != '-' else '-'

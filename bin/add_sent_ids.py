@@ -1,5 +1,4 @@
-from collections import defaultdict
-import os
+from __future__ import print_function
 import argparse
 
 arg_parser = argparse.ArgumentParser(description='Add sent ids to CoNLL-2012 file')

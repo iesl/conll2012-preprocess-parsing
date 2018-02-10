@@ -15,6 +15,7 @@ with open(args.input_file, 'r') as in_f:
         # blank line means end of sentence
         if not line:
             sent_num += 1
+            print()
         else:
             split_line = line.split('\t')
             this_doc = split_line[0]

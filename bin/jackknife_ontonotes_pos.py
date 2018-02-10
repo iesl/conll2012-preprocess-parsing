@@ -30,14 +30,16 @@ with open(args.input_file, 'r') as in_f:
             current_domain = line.split('/', 1)[0]
 
 # write num_splits train and test files
-train_files = [open('%s/train_%d' % (args.output_dir, i), 'w') for i in range(args.num_splits)]
-test_files = [open('%s/test_%d' % (args.output_dir, i), 'w') for i in range(args.num_splits)]
 for split_num in range(args.num_splits):
     print('writing split: %d' % split_num)
+    train_file = open('%s/train_%d' % (args.output_dir, split_num), 'w')
+    test_file = open('%s/test_%d' % (args.output_dir, split_num), 'w')
     for domain, sentences in domain_sentence_map.iteritems():
         for sent_num, sentence in enumerate(sentences):
             if sent_num % 10 == split_num:
-                test_files[split_num].write('%s\n\n' % sentence)
+                test_file.write('%s\n\n' % sentence)
             else:
-                train_files[split_num].write('%s\n\n' % sentence)
+                train_file.write('%s\n\n' % sentence)
+    train_file.close()
+    test_file.close()
 print('Done')

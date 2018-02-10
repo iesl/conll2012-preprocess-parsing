@@ -19,7 +19,7 @@ with open(args.input_file, 'r') as in_f:
             split_line = line.split('\t')
             this_doc = split_line[0]
             if this_doc != current_doc:
-                currect_doc = this_doc
+                current_doc = this_doc
                 sent_num = 0
             split_line[1] = str(sent_num)
             print('\t'.join(split_line))

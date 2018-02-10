@@ -21,6 +21,6 @@ with open(args.input_file, 'r') as in_f:
             if this_doc != current_doc:
                 currect_doc = this_doc
                 sent_num = 0
-            split_line[1] = sent_num
+            split_line[1] = str(sent_num)
             print('\t'.join(split_line))
 

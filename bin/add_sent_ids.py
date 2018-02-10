@@ -7,9 +7,6 @@ arg_parser.add_argument('--input_file', type=str, help='File to process')
 
 args = arg_parser.parse_args()
 
-if not os.path.exists(args.output_dir):
-    os.makedirs(args.output_dir)
-
 with open(args.input_file, 'r') as in_f:
     current_doc = ''
     sent_num = 0

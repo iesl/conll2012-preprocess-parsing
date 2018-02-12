@@ -16,7 +16,7 @@ for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' | \
-    awk '{if(!NF || substr($1,1,1) ~ /\(/) print}' > "$f.parse"
+    awk '{if(!NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
 done
 
 # Now convert those parses to dependencies
@@ -45,7 +45,7 @@ for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     f_converted="$f.parse.dep"
     f_pos="$f.parse.dep.cnlp"
     f_combined="$f_converted.combined"
-    paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $f) \
+    paste <(awk '{if (substr($1,1,1) !~ /#/ && (!NF || substr($6,1,1) ~ /\(/)) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $f) \
         <(awk '{print $2}' $f_pos) \
         <(awk '{print $6"\t"$7"\t"$9}' $f_converted) \
         <(awk '{if (substr($1,1,1) !~ /#/ ) {print $0}}' $f | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \

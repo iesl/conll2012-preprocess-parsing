@@ -3,7 +3,6 @@ import argparse
 
 arg_parser = argparse.ArgumentParser(description='Compute transition probabilities between SRL tags')
 arg_parser.add_argument('--in_file_name', type=str, help='File to process')
-arg_parser.add_argument('--out_file_name', type=str, help='Name of output file')
 
 args = arg_parser.parse_args()
 
@@ -42,10 +41,7 @@ with open(args.in_file_name, 'r') as in_f:
         else:
             current_sentence.append(line)
 
-print('Calculating normalized transition probabilities and exporting to %s' % args.out_file_name)
-with open(args.out_file_name, 'w') as out_f:
-    for label_a, transitions in label_counts.iteritems():
-        total_count = float(sum([count for label, count in transitions.iteritems()]))
-        for label_b, count in transitions.iteritems():
-            out_f.write('%s\t%s\t%2.5f\n' % (label_a, label_b, (count/total_count)))
-print('Done')
+for label_a, transitions in label_counts.iteritems():
+    total_count = float(sum([count for label, count in transitions.iteritems()]))
+    for label_b, count in transitions.iteritems():
+        print('%s\t%s\t%2.5f\n' % (label_a, label_b, (count/total_count)))

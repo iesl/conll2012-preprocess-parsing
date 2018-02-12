@@ -44,4 +44,4 @@ with open(args.in_file_name, 'r') as in_f:
 for label_a, transitions in label_counts.iteritems():
     total_count = float(sum([count for label, count in transitions.iteritems()]))
     for label_b, count in transitions.iteritems():
-        print('%s\t%s\t%2.5f\n' % (label_a, label_b, (count/total_count)))
+        print('%s\t%s\t%2.5f' % (label_a, label_b, (count/total_count)))

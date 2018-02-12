@@ -1,9 +1,9 @@
 from collections import defaultdict
 import argparse
 
-arg_parser = argparse.ArgumentParser(description='Split CoNLL-2012 data into splits for jackknifing')
+arg_parser = argparse.ArgumentParser(description='Compute transition probabilities between SRL tags')
 arg_parser.add_argument('--in_file_name', type=str, help='File to process')
-arg_parser.add_argument('--in_file_name', type=str, help='Directory to write output files')
+arg_parser.add_argument('--out_file_name', type=str, help='Name of output file')
 
 args = arg_parser.parse_args()
 

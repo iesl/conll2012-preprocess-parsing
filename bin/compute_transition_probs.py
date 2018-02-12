@@ -6,7 +6,6 @@ arg_parser.add_argument('--in_file_name', type=str, help='File to process')
 
 args = arg_parser.parse_args()
 
-print('Getting transition counts from %s' % args.in_file_name)
 with open(args.in_file_name, 'r') as in_f:
     # keep track of label_a / label_b counts here
     label_counts = defaultdict(dict)

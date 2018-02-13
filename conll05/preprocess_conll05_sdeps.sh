@@ -21,7 +21,7 @@ input_file=$1
 # Now convert those parses to dependencies
 # Output will have the extension .dep
 echo "Converting to dependencies: $input_file.parse"
-java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
 
 # Now assign auto part-of-speech tags
@@ -31,7 +31,7 @@ echo "POS tagging: $input_file.parse.sdeps"
 # need to convert to text format Stanford likes
 awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
 
-java -Xmx24g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \
     -textFile "$input_file.parse.sdeps.posonly" \
     -tokenize false \

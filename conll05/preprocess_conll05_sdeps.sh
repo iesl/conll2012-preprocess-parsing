@@ -31,7 +31,7 @@ echo "POS tagging: $input_file.parse.sdeps"
 # need to convert to text format Stanford likes
 awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
 
-java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
+java -mx2g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \
     -textFile "$input_file.parse.sdeps.posonly" \
     -tokenize false \

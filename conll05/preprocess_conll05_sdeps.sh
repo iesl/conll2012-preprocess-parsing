@@ -24,8 +24,8 @@ echo "Converting to dependencies: $input_file.parse"
 java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
 
- Now assign auto part-of-speech tags
- Output will have extension .cnlp
+# Now assign auto part-of-speech tags
+# Output will have extension .tagged
 echo "POS tagging: $input_file.parse.sdeps"
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \

@@ -26,16 +26,16 @@ cat /dev/null > $test_output
 cat /dev/null > $dev_output
 cat /dev/null > $altdev_output
 
-for sec in ${train[@]}
-  do
-  dir=$PTB/$sec
-  for f in $dir/*
-  do
-    echo "Writing $f to $train_output..."
-    java -mx150m -cp "$path_to_stanford_parser/*:" edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-        -treeFile $f -basic -conllx -keepPunct -makeCopulaHead >> $train_output
-  done
-done
+#for sec in ${train[@]}
+#  do
+#  dir=$PTB/$sec
+#  for f in $dir/*
+#  do
+#    echo "Writing $f to $train_output..."
+#    java -mx150m -cp "$path_to_stanford_parser/*:" edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+#        -treeFile $f -basic -conllx -keepPunct -makeCopulaHead >> $train_output
+#  done
+#done
 
 for sec in ${test[@]}
   do

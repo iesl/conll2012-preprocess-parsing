@@ -29,7 +29,7 @@ java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure
 echo "POS tagging: $input_file.parse.sdeps"
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \
-    -textFile "$input_file.parse.sdeps" \
+    -testFile "$input_file.parse.sdeps" \
     -outputFormat tsv \
     -outputFile "$input_file.parse.sdeps.tagged"
 #java -cp $CLASSPATH edu.emory.clir.clearnlp.bin.NLPDecode \

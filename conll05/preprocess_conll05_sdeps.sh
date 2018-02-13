@@ -42,7 +42,7 @@ java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
 # Finally, paste the original file together with the dependency parses and auto pos tags
 f_converted="$input_file.parse.sdeps"
 f_pos="$input_file.parse.sdeps.pos"
-f_combined="$f_converted.sdeps.combined"
+f_combined="$f_converted.combined"
 paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1"\t"$2}}' ) \
     <(awk '{print $2}' $f_pos) \
     <(awk '{print $5"\t"$7"\t"$8}' $f_converted) \

@@ -32,12 +32,13 @@ echo "POS tagging: $input_file.parse.sdeps"
 awk '{if(NF){printf "%s_%s ", $2, $5} else{print}}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
 
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
--model $postagger_model \
--testFile "$input_file.parse.sdeps.posonly" \
--tokenize false \
--outputFormat tsv \
--sentenceDelimiter newline \
--outputFile "$input_file.parse.sdeps.pos"
+    -model $postagger_model \
+    -testFile "$input_file.parse.sdeps.posonly" \
+    -tokenize false \
+    -outputFormat tsv \
+    -sentenceDelimiter newline \
+    > "$input_file.parse.sdeps.pos"
+#-outputFile "$input_file.parse.sdeps.pos"
 #java -cp $CLASSPATH edu.emory.clir.clearnlp.bin.NLPDecode \
 #    -mode pos \
 #    -c config_decode_pos.xml \

@@ -4,7 +4,7 @@
 # https://nlp.stanford.edu/software/stanford-dependencies.html
 #
 
-path_to_stanford_parser=/iesl/canvas/stanford-parser-full-2017-06-09
+path_to_stanford_parser=/iesl/canvas/strubell/stanford-parser-full-2017-06-09
 PTB=/iesl/data/ptb/v1/combined/wsj
 
 declare -a train=(02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21)

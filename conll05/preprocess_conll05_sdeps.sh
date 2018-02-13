@@ -29,11 +29,11 @@ java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure
 echo "POS tagging: $input_file.parse.sdeps"
 
 # need to convert to text format Stanford likes
-awk '{if(NF){printf "%s_%s ", $2, $5} else{print}}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
+awk '{if(NF){printf "%s ", $2} else{print}}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
 
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \
-    -testFile "$input_file.parse.sdeps.posonly" \
+    -textFile "$input_file.parse.sdeps.posonly" \
     -tokenize false \
     -outputFormat tsv \
     -sentenceDelimiter newline \

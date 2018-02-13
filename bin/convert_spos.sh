@@ -1,12 +1,9 @@
 #!/bin/bash
 
-##
 ## convert spos.conllu  data to 15 column tsv format
-##
-
 
 if [ "$#" -ne 1 ]; then
-  echo "Must supply input directory containing containing wsj\*sdep.spos.conllu files."
+  echo "Must supply input directory containing  wsj\*sdep.spos.conllu files."
   exit 1
 fi
 

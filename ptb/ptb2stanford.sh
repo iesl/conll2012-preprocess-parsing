@@ -13,6 +13,7 @@ declare -a test=(23)
 declare -a altdev=(24)
 
 output_dir="wsj-parse-3.5.0"
+mkdir -p $output_dir
 
 train_output="$output_dir/wsj02-21-trn.sdep"
 dev_output="$output_dir/wsj22-dev.sdep"

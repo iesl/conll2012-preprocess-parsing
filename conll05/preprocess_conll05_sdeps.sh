@@ -29,7 +29,7 @@ java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure
 echo "POS tagging: $input_file.parse.sdeps"
 
 # need to convert to text format Stanford likes
-awk '{if(NF){printf "%s ", $2} else{print}}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
+awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
 
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -model $postagger_model \
@@ -38,20 +38,14 @@ java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -outputFormat tsv \
     -sentenceDelimiter newline \
     > "$input_file.parse.sdeps.pos"
-#-outputFile "$input_file.parse.sdeps.pos"
-#java -cp $CLASSPATH edu.emory.clir.clearnlp.bin.NLPDecode \
-#    -mode pos \
-#    -c config_decode_pos.xml \
-#    -i "$input_file.parse.sdeps" \
-#    -ie dep
 
-## Finally, paste the original file together with the dependency parses and auto pos tags
-#f_converted="$input_file.parse.sdeps"
-#f_pos="$input_file.parse.sdeps.cnlp"
-#f_combined="$f_converted.sdeps.combined"
-#paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1"\t"$2}}' ) \
-#    <(awk '{print $2}' $f_pos) \
-#    <(awk '{print $6"\t"$7"\t"$9}' $f_converted) \
-#    <(zcat $input_file | awk '{if(NF == 0){print ""} else {print $5"\t"$6"\t-\t-\t"$4}}' ) \
-#    <(zcat $input_file | awk '{if(NF == 0){print ""} else {print $0"\t_"}}' | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \
-#> $f_combined
+# Finally, paste the original file together with the dependency parses and auto pos tags
+f_converted="$input_file.parse.sdeps"
+f_pos="$input_file.parse.sdeps.pos"
+f_combined="$f_converted.sdeps.combined"
+paste <(zcat $input_file | awk '{if(NF == 0){print ""} else {print "_\t_\t_\t"$1"\t"$2}}' ) \
+    <(awk '{print $2}' $f_pos) \
+    <(awk '{print $5"\t"$7"\t"$8}' $f_converted) \
+    <(zcat $input_file | awk '{if(NF == 0){print ""} else {print $5"\t"$6"\t-\t-\t"$4}}' ) \
+    <(zcat $input_file | awk '{if(NF == 0){print ""} else {print $0"\t_"}}' | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \
+> $f_combined

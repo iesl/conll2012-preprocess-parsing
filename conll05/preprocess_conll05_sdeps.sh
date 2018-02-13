@@ -27,11 +27,17 @@ java -mx150m -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure
 # Now assign auto part-of-speech tags
 # Output will have extension .tagged
 echo "POS tagging: $input_file.parse.sdeps"
+
+# need to convert to text format Stanford likes
+awk '{if(NF){printf "%s_%s ", $2, $5} else{print}}' "$input_file.parse.sdeps" > "$input_file.parse.sdeps.posonly"
+
 java -mx300m -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
-    -model $postagger_model \
-    -testFile "$input_file.parse.sdeps" \
-    -outputFormat tsv \
-    -outputFile "$input_file.parse.sdeps.tagged"
+-model $postagger_model \
+-testFile "$input_file.parse.sdeps.posonly" \
+-tokenize false \
+-outputFormat tsv \
+-sentenceDelimiter newline \
+-outputFile "$input_file.parse.sdeps.pos"
 #java -cp $CLASSPATH edu.emory.clir.clearnlp.bin.NLPDecode \
 #    -mode pos \
 #    -c config_decode_pos.xml \

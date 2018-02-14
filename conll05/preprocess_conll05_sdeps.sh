@@ -11,18 +11,17 @@ input_file=$1
 
 # First, convert the constituencies from the ontonotes files to the format expected
 # by the converter
-# todo check for file
-#echo "Extracting trees from: $input_file"
-## word pos parse -> stick words, pos into parse as terminals
-#zcat $input_file | \
-#awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); gsub(/#/, "$", $1); gsub(/#/, "$", $2); print $2" "$1"\t"$3}' | \
-#sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
+echo "Extracting trees from: $input_file"
+# word pos parse -> stick words, pos into parse as terminals
+zcat $input_file | \
+awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); gsub(/#/, "$", $1); gsub(/#/, "$", $2); print $2" "$1"\t"$3}' | \
+sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
 
 # Now convert those parses to dependencies
 # Output will have the extension .dep
-#echo "Converting to dependencies: $input_file.parse"
-#java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-#    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
+echo "Converting to dependencies: $input_file.parse"
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
 
 # Now assign auto part-of-speech tags
 # Output will have extension .tagged

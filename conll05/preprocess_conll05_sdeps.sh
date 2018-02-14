@@ -20,9 +20,9 @@ input_file=$1
 
 # Now convert those parses to dependencies
 # Output will have the extension .dep
-echo "Converting to dependencies: $input_file.parse"
-java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
+#echo "Converting to dependencies: $input_file.parse"
+#java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+#    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
 
 # Now assign auto part-of-speech tags
 # Output will have extension .tagged

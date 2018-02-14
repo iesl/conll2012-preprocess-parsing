@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 export WSJ=/iesl/data/ptb/v1/combined/wsj
 export BROWN=/iesl/canvas/strubell/data/BROWN

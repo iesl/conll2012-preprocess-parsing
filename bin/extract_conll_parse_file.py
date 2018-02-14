@@ -26,6 +26,7 @@ args = arg_parser.parse_args()
 # MISC: Any other annotation.
 with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open(args.input_file, 'r') as f:
   print_newline = False
+  word_idx = 1
   for line in f:
     line = line.strip()
     if line:
@@ -34,14 +35,20 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
       if args.domain == '-' or domain == args.domain:
         print_newline = True
         word = split_line[args.word_field]
-        id = int(split_line[args.id_field])+1
+        id = split_line[args.id_field]
+        if id == '-':
+          id = word_idx
+        else:
+          id = int(split_line[args.id_field]) + 1
         pos = split_line[args.pos_field]
         head = split_line[args.head_field]
         label = split_line[args.label_field]
         new_fields = [str(id), word, '_', pos, '_', '_', head, label]
         new_line = '\t'.join(new_fields)
         print(new_line)
+        word_idx += 1
     else:
+      word_idx = 1
       if print_newline:
         print_newline = False
         print()

@@ -21,7 +21,7 @@ foreach s ( $SECTIONS )
 
     # no gold parse, set to auto 
 #    zcat test.$s/synt.cha/test.$s.synt.cha.gz > /tmp/$$.synt
-    zcat test.$s/synt/test.$s.synt.wsj.gz > /tmp/$$.synt
+    zcat test.$s/synt/test.$s.synt.gz > /tmp/$$.synt
 
 
     # no senses, set to null

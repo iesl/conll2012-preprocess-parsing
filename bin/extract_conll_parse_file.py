@@ -36,7 +36,7 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
         print_newline = True
         word = split_line[args.word_field]
         id = split_line[args.id_field]
-        if id == '-':
+        if id == '_':
           id = word_idx
         else:
           id = int(split_line[args.id_field]) + 1

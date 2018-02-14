@@ -20,7 +20,7 @@ foreach s ( $SECTIONS )
     # zcat devel/synt.cha/devel.$s.synt.cha.gz > /tmp/$$.synt
 
     # no gold parse, set to auto 
-    zcat test.$s/synt/test.$s.synt.gz > /tmp/$$.synt
+    zcat test.$s/synt/test.$s.23.synt.gz > /tmp/$$.synt
 
     # no senses, set to null
     zcat test.$s/null/test.$s.null.gz > /tmp/$$.senses

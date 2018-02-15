@@ -56,9 +56,11 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
     else:
       word_idx = 1
       if buf:
-        for tok in buf:
-          print(tok)
-        print()
+        sent_len = len(buf)
+        if not args.drop_single_tokens or sent_len > 1:
+          for tok in buf:
+            print(tok)
+          print()
         buf = []
       # if print_newline:
       #   print_newline = False

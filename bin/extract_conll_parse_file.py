@@ -9,6 +9,10 @@ arg_parser.add_argument('--pos_field', type=int, help='Field containing gold par
 arg_parser.add_argument('--head_field', type=int, help='Field containing gold parse head')
 arg_parser.add_argument('--label_field', type=int, help='Field containing gold parse label')
 arg_parser.add_argument('--id_field', type=int, help='Field containing word id')
+arg_parser.add_argument('--drop_single_tokens', dest='drop_single_tokens', action='store_true')
+arg_parser.add_argument('--no_drop_single_tokens', dest='drop_single_tokens', action='store_false')
+arg_parser.set_defaults(drop_single_tokens=False)
+
 arg_parser.add_argument('--domain', dest='domain')
 arg_parser.set_defaults(domain='-')
 
@@ -25,15 +29,16 @@ args = arg_parser.parse_args()
 # DEPS: Enhanced dependency graph in the form of a list of head-deprel pairs.
 # MISC: Any other annotation.
 with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open(args.input_file, 'r') as f:
-  print_newline = False
+  # print_newline = False
   word_idx = 1
+  buf = []
   for line in f:
     line = line.strip()
     if line:
       split_line = line.strip().split()
       domain = split_line[0].split('/')[0]
       if args.domain == '-' or domain == args.domain:
-        print_newline = True
+        # print_newline = True
         word = split_line[args.word_field]
         id = split_line[args.id_field]
         if id == '_':
@@ -45,10 +50,20 @@ with gzip.open(args.input_file, 'r') if args.input_file.endswith('gz') else open
         label = split_line[args.label_field]
         new_fields = [str(id), word, '_', pos, '_', '_', head, label]
         new_line = '\t'.join(new_fields)
-        print(new_line)
+        buf.append(new_line)
+        # print(new_line)
         word_idx += 1
     else:
       word_idx = 1
-      if print_newline:
-        print_newline = False
+      if buf:
+        for tok in buf:
+          print(tok)
         print()
+        buf = []
+      # if print_newline:
+      #   print_newline = False
+      #   print()
+  if buf:
+    for tok in buf:
+      print(tok)
+    print()

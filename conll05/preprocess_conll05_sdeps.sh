@@ -1,27 +1,23 @@
 #!/bin/bash
 
 # You'll want to change this
-STANFORD_PARSER=/iesl/canvas/strubell/stanford-parser-full-2017-06-09
-STANFORD_POS=/iesl/canvas/strubell/stanford-postagger-full-2017-06-09
-
 STANFORD_CP="$STANFORD_PARSER/*:$STANFORD_POS/*:"
 postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 
 input_file=$1
 
-# First, convert the constituencies from the ontonotes files to the format expected
-# by the converter
-#echo "Extracting trees from: $input_file"
-## word pos parse -> stick words, pos into parse as terminals
-#zcat $input_file | \
-#awk '{gsub(/\(/, "-RRB-", $1); gsub(/\)/, "-LRB-", $1); gsub(/\(/, "-RRB-", $2); gsub(/\)/, "-LRB-", $2); gsub(/#/, "$", $1); gsub(/#/, "$", $2); print $2" "$1"\t"$3}' | \
-#sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
-#
-## Now convert those parses to dependencies
-## Output will have the extension .dep
-#echo "Converting to dependencies: $input_file.parse"
-#java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-#    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
+# First, convert the constituencies from the conll05 files to the format expected by the converter
+echo "Extracting trees from: $input_file"
+# word pos parse -> stick words, pos into parse as terminals
+zcat $input_file | \
+awk 'gsub(/\(/, "-LRB-", $2); gsub(/\)/, "-RRB-", $2); print $2" "$1"\t"$3}' | \
+sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
+
+# Now convert those parses to dependencies
+# Output will have the extension .dep
+echo "Converting to dependencies: $input_file.parse"
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+    -treeFile "$input_file.parse" -basic -conllx -keepPunct -makeCopulaHead > "$input_file.parse.sdeps"
 
 # Now assign auto part-of-speech tags
 # Output will have extension .tagged

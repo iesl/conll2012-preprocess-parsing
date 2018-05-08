@@ -34,6 +34,8 @@ java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
     -sentenceDelimiter newline \
     > "$input_file.parse.sdeps.pos"
 
+echo "Combining: $input_file.parse.sdeps, $input_file.parse.sdeps.pos"
+
 # Finally, paste the original file together with the dependency parses and auto pos tags
 f_converted="$input_file.parse.sdeps"
 f_pos="$input_file.parse.sdeps.pos"

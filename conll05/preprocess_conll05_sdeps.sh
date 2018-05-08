@@ -10,7 +10,7 @@ input_file=$1
 echo "Extracting trees from: $input_file"
 # word pos parse -> stick words, pos into parse as terminals
 zcat $input_file | \
-awk 'gsub(/\(/, "-LRB-", $2); gsub(/\)/, "-RRB-", $2); print $2" "$1"\t"$3}' | \
+awk '{gsub(/\(/, "-LRB-", $2); gsub(/\)/, "-RRB-", $2); print $2" "$1"\t"$3}' | \
 sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
 
 # Now convert those parses to dependencies

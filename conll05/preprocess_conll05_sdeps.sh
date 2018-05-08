@@ -1,18 +1,16 @@
 #!/bin/bash
 
-# You'll want to change this
 STANFORD_CP="$STANFORD_PARSER/*:$STANFORD_POS/*:"
 postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 
 input_file=$1
 
-# First, convert the constituencies from the conll05 files to the format expected by the converter
+# First, convert the constituencies from the files to the format expected by the converter
 echo "Extracting trees from: $input_file"
 # word pos parse -> stick words, pos into parse as terminals
-#awk '{gsub(/\(/, "-LRB-", $2); gsub(/\)/, "-RRB-", $2); print $2" "$1"\t"$3}' | \
-
+# gsub(/#/, "$", $1); gsub(/#/, "$", $2);
 zcat $input_file | \
-awk '{print $2" "$1"\t"$3}' | \
+awk '{gsub(/\(/, "-LRB-", $1); gsub(/\)/, "-RRB-", $1); gsub(/\(/, "-LRB-", $2); gsub(/\)/, "-RRB-", $2); print $2" "$1"\t"$3}' | \
 sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$input_file.parse"
 
 # Now convert those parses to dependencies

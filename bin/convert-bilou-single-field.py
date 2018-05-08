@@ -13,9 +13,11 @@ args = arg_parser.parse_args()
 join_str = '/'
 # (R-ARG1*))
 # (ARG1(ARG0*)) --> U-ARG1/U-ARG0 (U-ARG0/L-ARG1)
+
 with open(args.input_file, 'r') as f:
   label_stack = []
   for line_num, line in enumerate(f):
+  # for line_num, line in enumerate(lines):
     new_labels = []
     split_line = line.strip().split()
     if not split_line:
@@ -61,7 +63,6 @@ with open(args.input_file, 'r') as f:
           label_stack.append(new_label)
 
         output_labels = output_labels[:len(output_labels) - close_parens] + start_labels + unit_labels + close_labels
-
 
       new_label = join_str.join(output_labels)
       split_line[args.field] = new_label

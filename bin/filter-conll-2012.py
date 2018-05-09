@@ -13,9 +13,8 @@ with open(args.docid_file, 'r') as f:
     line = line.strip()
     docid_map.add(line)
 
-print(docid_map)
-
 with open(args.input_file, 'r') as f:
+  last_print_empty = True
   for line in f:
     line = line.strip()
     if line:
@@ -23,5 +22,8 @@ with open(args.input_file, 'r') as f:
       docid = split_line[0].split('/')[-1]
       if docid in docid_map:
         print(line)
+        last_print_empty = False
     else:
-      print()
+      if not last_print_empty:
+        print()
+      last_print_empty = True

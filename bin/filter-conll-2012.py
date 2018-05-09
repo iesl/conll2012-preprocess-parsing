@@ -11,7 +11,7 @@ docid_map = {}
 with open(args.docid_file, 'r') as f:
   for line in f:
     line = line.strip()
-    docid_map += line
+    docid_map.add(line)
 
 print(docid_map)
 

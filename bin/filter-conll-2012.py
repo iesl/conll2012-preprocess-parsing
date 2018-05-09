@@ -7,7 +7,7 @@ arg_parser.add_argument('--input_file', type=str, help='File to process')
 arg_parser.add_argument('--docid_file', type=str, help='List of doc ids to keep')
 args = arg_parser.parse_args()
 
-docid_map = {}
+docid_map = set()
 with open(args.docid_file, 'r') as f:
   for line in f:
     line = line.strip()

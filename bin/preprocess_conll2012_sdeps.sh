@@ -27,7 +27,7 @@ done
 
 # Now convert those parses to dependencies
 # Output will have the extension .dep
-for f in `find $input_dir/* -type d -not -path '*/\.*'`; do
+for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Converting to dependencies: $f"
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
@@ -35,7 +35,7 @@ done
 
 # Now assign auto part-of-speech tags
 # Output will have extension .cnlp
-for f in `find $input_dir/* -type d -not -path '*/\.*'`; do
+for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "POS tagging: $f"
     awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
 

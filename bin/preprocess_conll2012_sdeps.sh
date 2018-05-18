@@ -15,38 +15,38 @@ postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 
 input_dir=$1
 
-# First, convert the constituencies from the ontonotes files to the format expected
-# by the converter
-for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-    echo "Extracting trees from: $f"
-    # word pos parse -> stick words, pos into parse as terminals
-    awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
-    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$f.parse"
-#    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
-done
-
-# Now convert those parses to dependencies
-# Output will have the extension .dep
-for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
-    echo "Converting to dependencies: $f"
-    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
-done
-
-# Now assign auto part-of-speech tags
-# Output will have extension .cnlp
-for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
-    echo "POS tagging: $f"
-    awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
-
-    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
-        -model $postagger_model \
-        -textFile "$f.parse.sdeps.posonly" \
-        -tokenize false \
-        -outputFormat tsv \
-        -sentenceDelimiter newline \
-        > "$f.parse.sdeps.pos"
-done
+## First, convert the constituencies from the ontonotes files to the format expected
+## by the converter
+#for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
+#    echo "Extracting trees from: $f"
+#    # word pos parse -> stick words, pos into parse as terminals
+#    awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
+#    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$f.parse"
+##    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
+#done
+#
+## Now convert those parses to dependencies
+## Output will have the extension .dep
+#for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
+#    echo "Converting to dependencies: $f"
+#    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+#    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
+#done
+#
+## Now assign auto part-of-speech tags
+## Output will have extension .cnlp
+#for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
+#    echo "POS tagging: $f"
+#    awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
+#
+#    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
+#        -model $postagger_model \
+#        -textFile "$f.parse.sdeps.posonly" \
+#        -tokenize false \
+#        -outputFormat tsv \
+#        -sentenceDelimiter newline \
+#        > "$f.parse.sdeps.pos"
+#done
 
 # Finally, paste the original file together with the dependency parses and auto pos tags
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do

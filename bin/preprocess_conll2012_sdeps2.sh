@@ -20,10 +20,14 @@ output_dir=$2
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Extracting trees from: $f"
+    f_path=${f#${input_dir}?(/)}
+    f_prefix=${f_path%/*}
+#    f_file=${f##*/}
+    mkdir -p $output_dir/$f_prefix
     # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\/\([.?-]\)/\1/' | \
-    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$output_dir/${f##*/}.parse"
+    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$output_dir/$f_path.parse"
 #    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
 done
 
@@ -31,7 +35,7 @@ done
 # Output will have the extension .sdeps
 for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Converting to dependencies: $f"
-    f=$output_dir/${f##*/}
+    f=$output_dir/${f#${input_dir}?(/)}
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
 done
@@ -39,7 +43,7 @@ done
 # Now assign auto part-of-speech tags
 for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "POS tagging: $f"
-    f=$output_dir/${f##*/}
+    f=$output_dir/${f#${input_dir}?(/)}
     awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
         -model $postagger_model \
@@ -52,10 +56,9 @@ done
 
 # Finally, paste the original file together with the dependency parses and auto pos tags
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-#    f=$output_dir/${f##*/}
-    f_converted="$output_dir/${f##*/}.parse.sdeps"
-    f_pos="$output_dir/${f##*/}.parse.sdeps.pos"
-    f_combined="$output_dir/${f##*/}.combined"
+    f_converted="$output_dir/${f#${input_dir}?(/)}.parse.sdeps"
+    f_pos="$output_dir/${f#${input_dir}?(/)}.parse.sdeps.pos"
+    f_combined="$output_dir/${f#${input_dir}?(/)}.combined"
     paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $f) \
         <(awk '{print $2}' $f_pos) \
         <(awk '{if(NF == 0){print ""} else {print $7"\t"$8"\t_"}}' $f_converted) \

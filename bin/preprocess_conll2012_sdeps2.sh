@@ -21,12 +21,12 @@ output_dir=$2
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     f_path=${f##${input_dir}?(/)}
     f_prefix=${f_path%/*}
-    exit
 #    f_file=${f##*/}
     mkdir -p $output_dir/$f_prefix
     echo "input_dir: $input_dir"
     echo "f_prefix: $f_prefix"
     echo "Extracting trees from: $f_path"
+    exit
     # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\/\([.?-]\)/\1/' | \

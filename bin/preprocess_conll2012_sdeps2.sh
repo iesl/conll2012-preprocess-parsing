@@ -19,11 +19,11 @@ output_dir=$2
 # First, convert the constituencies from the ontonotes files to the format expected
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-    echo "Extracting trees from: $f"
     f_path=${f#${input_dir}?(/)}
     f_prefix=${f_path%/*}
 #    f_file=${f##*/}
     mkdir -p $output_dir/$f_prefix
+    echo "Extracting trees from: $f_path"
     # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\/\([.?-]\)/\1/' | \

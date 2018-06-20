@@ -35,7 +35,7 @@ done
 # Output will have the extension .sdeps
 for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Converting to dependencies: $f"
-    f=$output_dir/${f#${input_dir}?(/)}
+    f=$output_dir/`sed 's|'${input_dir}'||' <<< $f`
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
 done
@@ -43,7 +43,7 @@ done
 # Now assign auto part-of-speech tags
 for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "POS tagging: $f"
-    f=$output_dir/${f#${input_dir}?(/)}
+    f=$output_dir/`sed 's|'${input_dir}'||' <<< $f`
     awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
         -model $postagger_model \
@@ -56,9 +56,10 @@ done
 
 # Finally, paste the original file together with the dependency parses and auto pos tags
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-    f_converted="$output_dir/${f#${input_dir}?(/)}.parse.sdeps"
-    f_pos="$output_dir/${f#${input_dir}?(/)}.parse.sdeps.pos"
-    f_combined="$output_dir/${f#${input_dir}?(/)}.combined"
+    f_path=`sed 's|'${input_dir}'||' <<< $f`
+    f_converted="$output_dir/$f_path.parse.sdeps"
+    f_pos="$output_dir/$f_path.parse.sdeps.pos"
+    f_combined="$output_dir/$f_path.combined"
     paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $f) \
         <(awk '{print $2}' $f_pos) \
         <(awk '{if(NF == 0){print ""} else {print $7"\t"$8"\t_"}}' $f_converted) \

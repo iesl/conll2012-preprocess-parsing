@@ -20,16 +20,10 @@ output_dir=$2
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     e="/home/strubell/research/data/conll-formatted-ontonotes-5.0/data/conll-2012-test/data/english/annotations"
-    f_path=${f##${e}?(/)}
     f_path=`sed 's|'${input_dir}'||' <<< $f`
     f_prefix=${f_path%/*}
-#    f_file=${f##*/}
     mkdir -p $output_dir/$f_prefix
-    echo "input_dir: $input_dir"
-    echo "f_path: $f_path"
-    echo "f_prefix: $f_prefix"
-    echo "Extracting trees from: $f_path"
-    exit
+
     # word pos parse -> stick words, pos into parse as terminals
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\/\([.?-]\)/\1/' | \

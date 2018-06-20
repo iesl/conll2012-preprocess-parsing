@@ -24,6 +24,7 @@ for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
 #    f_file=${f##*/}
     mkdir -p $output_dir/$f_prefix
     echo "input_dir: $input_dir"
+    echo "f_path: $f_path"
     echo "f_prefix: $f_prefix"
     echo "Extracting trees from: $f_path"
     exit

@@ -76,7 +76,7 @@ for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     f_pos="$output_dir/$f_path.parse.sdeps.pos"
     f_combined="$output_dir/$f_path.combined"
     paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3}}' $f) \
-        <(awk '{print $1}' $f_converted) \
+        <(awk '{print $2}' $f_converted) \
         <(awk '{if (substr($1,1,1) !~ /#/ ) {print $5}}' $f) \
         <(awk '{print $2}' $f_pos) \
         <(awk '{if(NF == 0){print ""} else {print $7"\t"$8"\t_"}}' $f_converted) \

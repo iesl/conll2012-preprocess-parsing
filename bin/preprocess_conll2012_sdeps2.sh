@@ -21,6 +21,7 @@ output_dir=$2
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     f_path=${f##${input_dir}?(/)}
     f_prefix=${f_path%/*}
+    exit
 #    f_file=${f##*/}
     mkdir -p $output_dir/$f_prefix
     echo "input_dir: $input_dir"

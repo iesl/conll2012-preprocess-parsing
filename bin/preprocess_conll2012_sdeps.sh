@@ -16,6 +16,19 @@ postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 input_dir=$1
 output_dir=$2
 
+if [[ "$input_dir" =~ "dev" ]]; then
+    data_split="dev"
+elif [[ "$input_dir" =~ "test" ]]; then
+    data_split="test"
+elif [[ "$input_dir" =~ "train" ]]; then
+    data_split="train"
+else
+    echo "Unable to match data split (train|dev|test) in path."
+    exit
+fi
+
+output_dir=$output_dir/$data_split
+
 # First, convert the constituencies from the ontonotes files to the format expected
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do

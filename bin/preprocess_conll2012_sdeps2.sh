@@ -19,7 +19,7 @@ output_dir=$2
 # First, convert the constituencies from the ontonotes files to the format expected
 # by the converter
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-    e="$input_dir"
+    e="/home/strubell/research/data/conll-formatted-ontonotes-5.0/data/conll-2012-test/data/english/annotations"
     f_path=${f##${e}?(/)}
     f_prefix=${f_path%/*}
 #    f_file=${f##*/}

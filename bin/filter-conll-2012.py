@@ -15,7 +15,7 @@ with open(args.docid_file, 'r') as f:
     line = line.strip()
     docid_map.add(line)
 
-fnames = [d for f in os.walk(args.input_dir) for d in glob(os.path.join(f[0], '*_conll'))]
+fnames = [d for f in os.walk(args.input_dir) for d in glob(os.path.join(f[0], '*.combined'))]
 
 for fname in fnames:
   print("processing ", fname)

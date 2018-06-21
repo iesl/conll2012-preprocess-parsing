@@ -54,20 +54,20 @@ output_dir=$output_dir/$data_split
 #    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
 #done
 #
-## Now assign auto part-of-speech tags
-#for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
-#    f_path=`sed 's|'${input_dir}'||' <<< $f`
-#    echo "POS tagging: $f_path"
-#    f=$output_dir/$f_path
-#    awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
-#    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
-#        -model $postagger_model \
-#        -textFile "$f.parse.sdeps.posonly" \
-#        -tokenize false \
-#        -outputFormat tsv \
-#        -sentenceDelimiter newline \
-#        > "$f.parse.sdeps.pos"
-#done
+# Now assign auto part-of-speech tags
+for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
+    f_path=`sed 's|'${input_dir}'||' <<< $f`
+    echo "POS tagging: $f_path"
+    f=$output_dir/$f_path
+    awk '{if(NF){printf "%s ", $2} else{ print "" }}' "$f.parse.sdeps" > "$f.parse.sdeps.posonly"
+    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.tagger.maxent.MaxentTagger \
+        -model $postagger_model \
+        -textFile "$f.parse.sdeps.posonly" \
+        -tokenize false \
+        -outputFormat tsv \
+        -sentenceDelimiter newline \
+        > "$f.parse.sdeps.pos"
+done
 
 # Finally, paste the original file together with the dependency parses and auto pos tags
 for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do

@@ -25,7 +25,7 @@ for fname in fnames:
       if line:
         split_line = line.strip().split()
         docid = split_line[0].split('/')[-1]
-        if docid in docid_map:
+        if docid in docid_map or not docid_map:
           print(line)
           last_print_empty = False
       else:

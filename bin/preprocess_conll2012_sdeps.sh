@@ -31,29 +31,29 @@ output_dir=$output_dir/$data_split
 
 # First, convert the constituencies from the ontonotes files to the format expected
 # by the converter
-#for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
-#    f_path=`sed 's|'${input_dir}'||' <<< $f`
-#    f_prefix=${f_path%/*}
-#    mkdir -p $output_dir/$f_prefix
-#
-#    echo "Extracting trees from: $f_path"
-#    # word pos parse -> stick words, pos into parse as terminals
-#    awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
-#    sed 's/\/\([.?-]\)/\1/' | \
-#    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$output_dir/$f_path.parse"
-##    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
-#done
-#
-## Now convert those parses to dependencies
-## Output will have the extension .sdeps
-#for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
-#    f_path=`sed 's|'${input_dir}'||' <<< $f`
-#    echo "Converting to dependencies: $f_path"
-#    f=$output_dir/$f_path
-#    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-#    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
-#done
-#
+for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
+    f_path=`sed 's|'${input_dir}'||' <<< $f`
+    f_prefix=${f_path%/*}
+    mkdir -p $output_dir/$f_prefix
+
+    echo "Extracting trees from: $f_path"
+    # word pos parse -> stick words, pos into parse as terminals
+    awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
+    sed 's/\/\([.?-]\)/\1/' | \
+    sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$output_dir/$f_path.parse"
+#    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
+done
+
+# Now convert those parses to dependencies
+# Output will have the extension .sdeps
+for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
+    f_path=`sed 's|'${input_dir}'||' <<< $f`
+    echo "Converting to dependencies: $f_path"
+    f=$output_dir/$f_path
+    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
+done
+
 # Now assign auto part-of-speech tags
 for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     f_path=`sed 's|'${input_dir}'||' <<< $f`

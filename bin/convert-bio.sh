@@ -12,16 +12,16 @@ max_field=`awk '{print NF}' $input_file | sort -n | tail -1`
 first_field=14
 fields_to_convert=`seq $first_field $(( max_field - 1 ))`
 
-tmpfile=`mktemp`
+#tmpfile=`mktemp`
 
 bilou_file="$input_file.bio"
-cp $input_file $bilou_file
+#cp $input_file $bilou_file
 
 for field in $fields_to_convert; do
     echo "Converting field $field of $(( max_field - 1 ))"
-    echo "bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg"
-    python bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg > $tmpfile
-    cp $tmpfile $bilou_file
+    echo "bin/convert-bilou-single-field.py --input_file $input_file --field $((field - 1)) $bilou_arg"
+    python bin/convert-bilou-single-field.py --input_file $input_file --field $((field - 1)) $bilou_arg > $bilou_file
+#    cp $tmpfile $bilou_file
 done
 
 rm $tmpfile

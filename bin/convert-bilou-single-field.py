@@ -67,4 +67,3 @@ with open(args.input_file, 'r') as f:
       new_label = join_str.join(output_labels)
       split_line[args.field] = new_label
     print('\t'.join(split_line))
-    print(line)

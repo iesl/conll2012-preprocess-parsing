@@ -19,6 +19,7 @@ cp $input_file $bilou_file
 
 for field in $fields_to_convert; do
     echo "Converting field $field of $(( max_field - 1 ))"
+    echo "bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg"
     python bin/convert-bilou-single-field.py --input_file $bilou_file --field $((field - 1)) $bilou_arg > $tmpfile
     cp $tmpfile $bilou_file
 done

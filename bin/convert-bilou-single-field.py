@@ -17,7 +17,6 @@ join_str = '/'
 with open(args.input_file, 'r') as f:
   label_stack = []
   for line_num, line in enumerate(f):
-    print(line)
   # for line_num, line in enumerate(lines):
     new_labels = []
     split_line = line.strip().split()

@@ -13,6 +13,8 @@
 STANFORD_CP="$STANFORD_PARSER/*:$STANFORD_POS/*:"
 postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 
+dependencies_option="CCPropagatedDependencies" # "basic"
+
 input_dir=$1
 output_dir=$2
 
@@ -51,7 +53,7 @@ for f in `find $input_dir/* -type f -not -path '*/\.*' -name "*_conll"`; do
     echo "Converting to dependencies: $f_path"
     f=$output_dir/$f_path
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-    -treeFile "$f.parse" -basic -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
+    -treeFile "$f.parse" -$dependencies_option -conllx -keepPunct -makeCopulaHead > "$f.parse.sdeps"
 done
 
 # Now assign auto part-of-speech tags

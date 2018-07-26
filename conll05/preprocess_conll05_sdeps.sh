@@ -42,7 +42,7 @@ f_pos="$input_file.parse.sdeps.pos"
 f_combined="$f_converted.combined"
 
 # docid is conll05
-paste <(zcat $input_file | awk '{if(NF == 0){print ""; c=0; s++} else {print "conll05\t"s"\t"c++"\t"$1}}' ) \
+paste <(zcat $input_file | awk 'BEGIN{s=0;c=0}{if(NF == 0){print ""; c=0; s++} else {print "conll05\t"s"\t"c++"\t"$1}}' ) \
     <(awk '{print $5}' $f_converted) \
     <(awk '{print $2}' $f_pos) \
     <(awk '{if(NF == 0){print ""} else {print $7"\t"$8"\t_"}}' $f_converted) \

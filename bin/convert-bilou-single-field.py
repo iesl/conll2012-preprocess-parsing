@@ -6,7 +6,8 @@ arg_parser.add_argument('--input_file', type=str, help='File to process')
 arg_parser.add_argument('--field', type=int, help='Field in the file to process')
 arg_parser.add_argument('--bilou', dest='bilou', help='Whether to use BILOU encoding (default BIO)', default=False, action='store_true')
 arg_parser.add_argument('--bio', dest='bilou', help='Whether to use BIO encoding (default)', default=False, action='store_false')
-
+arg_parser.add_argument('--take_last', dest='take_last', action='store_true')
+arg_parser.add_argument('--no_take_last', dest='take_last', action='store_false')
 
 args = arg_parser.parse_args()
 
@@ -20,9 +21,10 @@ with open(args.input_file, 'r') as f:
   # for line_num, line in enumerate(lines):
     new_labels = []
     split_line = line.strip().split()
+    last_field = len(split_line) - (0 if args.take_last else 1)
     if not split_line:
       assert not label_stack, "There remains an unclosed paren (line %d) labels: %s" % (line_num, ','.join(label_stack))
-    elif args.field < len(split_line)-1:
+    elif args.field < last_field:
       field = split_line[args.field]
       output_labels = map(lambda s: "I-" + s, label_stack)
       if field == "*" and not label_stack:

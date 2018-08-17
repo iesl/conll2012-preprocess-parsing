@@ -19,6 +19,7 @@ for file in `ls $input_dir`; do
     -sentences newline \
     -outputFormat penn \
     -tokenized \
+    -originalDependencies \
     edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
     - > $input_file.parsed
 

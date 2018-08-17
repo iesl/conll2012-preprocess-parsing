@@ -12,25 +12,21 @@ dependencies_option="CCPropagatedDependencies" # "basic"
 
 input_file=$1
 
-for file in `ls $input_dir`; do
+awk '{print $4}' $input_file | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.parser.lexparser.LexicalizedParser \
+-sentences newline \
+-outputFormat penn \
+-tokenized \
+-originalDependencies \
+edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
+- > $input_file.parsed
 
-    awk '{print $4}' $input_file | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
-    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.parser.lexparser.LexicalizedParser \
-    -sentences newline \
-    -outputFormat penn \
-    -tokenized \
-    -originalDependencies \
-    edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
-    - > $input_file.parsed
+java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
+-$dependencies_option \
+-conllx \
+-treeFile $input_file.parsed \
+> $input_file.deps
 
-    java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
-    -$dependencies_option \
-    -conllx \
-    -treeFile $input_file.parsed \
-    > $input_file.deps
-
-
-done
 
 ## First, convert the constituencies from the ontonotes files to the format expected
 ## by the converter

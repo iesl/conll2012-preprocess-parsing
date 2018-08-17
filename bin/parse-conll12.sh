@@ -34,8 +34,7 @@ java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure 
 # Finally, paste the original file together with the dependency parses and auto pos tags
 f_parsed="$output_dir/$input_file_nopath.deps"
 f_combined="$output_dir/$input_file_nopath.parsed"
-paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $input_file \
-    <(awk '{print $5}' $f_parsed) \
-    <(awk '{if(NF == 0){print ""} else {print $7"\t"$8"\t_"}}' $f_parsed) \
-    <(awk '{if (substr($1,1,1) !~ /#/ ) {print $0}}' $f | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \
+paste <(awk '{if (substr($1,1,1) !~ /#/ ) {print $1"\t"$2"\t"$3"\t"$4"\t"$5}}' $input_file) \
+      <(awk '{if(NF == 0){print ""} else {print $5"\t"$7"\t"$8"\t_"}}' $f_parsed) \
+      <(awk '{if (substr($1,1,1) !~ /#/ ) {print $0}}' $input_file | tr -s ' ' | cut -d' ' -f7- | sed 's/ /\t/g') \
 > $f_combined

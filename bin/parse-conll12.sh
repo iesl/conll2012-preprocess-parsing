@@ -20,11 +20,11 @@ for file in `ls $input_dir`; do
     -outputFormat penn \
     -tokenized \
     edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
-    - | \
+    - > $input_file.parsed
     java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \
     -$dependencies_option \
     -conllx \
-    -
+    -treeFile $input_file.parsed
 
 
 done

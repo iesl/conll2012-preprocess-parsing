@@ -16,14 +16,14 @@ output_dir=$2
 input_file_nopath=${input_file##*/}
 
 # Convert to one-sentence-per-line format and parse
-awk '{print $2}' $input_file | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
-java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.parser.lexparser.LexicalizedParser \
--sentences newline \
--outputFormat penn \
--tokenized \
--originalDependencies \
-edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
-- > $output_dir/$input_file_nopath.trees
+#awk '{print $2}' $input_file | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
+#java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.parser.lexparser.LexicalizedParser \
+#-sentences newline \
+#-outputFormat penn \
+#-tokenized \
+#-originalDependencies \
+#edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz \
+#- > $output_dir/$input_file_nopath.trees
 
 # Convert parses to dependencies
 java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.trees.EnglishGrammaticalStructure \

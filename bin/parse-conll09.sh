@@ -16,7 +16,7 @@ output_dir=$2
 input_file_nopath=${input_file##*/}
 
 # Convert to one-sentence-per-line format and parse
-awk '{print $2}' $input_file | sed 's/\)/-RRB-/' | sed 's/\(/-LRB-/' | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
+awk '{print $2}' $input_file | sed 's/)/-RRB-/' | sed 's/(/-LRB-/' | awk '{if($1 == ""){print ""} else {printf "%s ", $0}} END {print ""}' | \
 java -Xmx8g -cp $STANFORD_CP edu.stanford.nlp.parser.lexparser.LexicalizedParser \
 -sentences newline \
 -outputFormat penn \

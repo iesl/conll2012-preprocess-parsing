@@ -35,5 +35,5 @@ f_parsed="$output_dir/$input_file_nopath.deps"
 f_combined="$output_dir/$input_file_nopath.parsed"
 paste <(awk 'BEGIN{s=0} {if (substr($1,1,1) !~ /#/ && NF != 0) {print $1"\t"s"\t"$3"\t"$4"\t"$5} else {print ""; s++}}' $input_file) \
       <(awk '{if(NF == 0){print ""} else {print $5"\t"$7"\t"$8"\t_"}}' $f_parsed) \
-      <(awk '{if (substr($1,1,1) !~ /#/ ) {print $0}}' $input_file | tr -s ' ' | cut -d' ' -f9- | sed 's/ /\t/g') \
+      <(awk '{if (substr($1,1,1) !~ /#/ ) {print $0}}' $input_file | cut -d$'\t' -f7- | sed 's/ /\t/g') \
 > $f_combined

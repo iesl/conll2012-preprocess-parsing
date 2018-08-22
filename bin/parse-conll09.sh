@@ -35,7 +35,7 @@ input_file_nopath=${input_file##*/}
 # Finally, paste the original file together with the dependency parses and auto pos tags
 f_parsed="$output_dir/$input_file_nopath.deps"
 f_combined="$output_dir/$input_file_nopath.parsed"
-paste <(awk 'BEGIN{s=0} {if NF != 0) {print $1"\t"$2"\t"$3"\t"$4"\t"$5} else {print ""; s++}}' $input_file) \
+paste <(awk 'BEGIN{s=0} {if (NF != 0) {print $1"\t"$2"\t"$3"\t"$4"\t"$5} else {print ""; s++}}' $input_file) \
       <(awk '{if(NF == 0){print ""} else {print $5"\t"$6"\t"$7"\t"$8}}' $f_parsed) \
       <(awk '{if(NF == 0){print ""}}' $input_file | tr -s ' ' | cut -d' ' -f8- | sed 's/ /\t/g') \
 > $f_combined

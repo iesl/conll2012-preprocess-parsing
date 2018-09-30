@@ -1,19 +1,9 @@
 #!/bin/bash
 
-# You'll want to change this if you're not running from the project's root directory
-#CLEARNLP=`pwd`
-#CLEARLIB=$CLEARNLP/lib
-#CLASSPATH=$CLEARLIB/clearnlp-3.1.2.jar:$CLEARLIB/args4j-2.0.29.jar:$CLEARLIB/log4j-1.2.17.jar:$CLEARLIB/hppc-0.6.1.jar:$CLEARLIB/xz-1.5.jar:$CLEARLIB/clearnlp-dictionary-3.2.jar:$CLEARLIB/clearnlp-general-en-pos-3.2.jar:$CLEARLIB/clearnlp-global-lexica-3.1.jar:.
-#
-#input_dir=$1
-#headrules=$CLEARNLP/headrule_en_stanford.txt
-#pos_config=$CLEARNLP/config_decode_pos.xml
-
-
 STANFORD_CP="$STANFORD_PARSER/*:$STANFORD_POS/*:"
 postagger_model="$STANFORD_POS/models/english-left3words-distsim.tagger"
 
-dependencies_option="CCPropagatedDependencies" # "basic"
+dependencies_option="basic"
 
 input_dir=$1
 output_dir=$2
@@ -43,7 +33,7 @@ for f in `find $input_dir -type f -not -path '*/\.*' -name "*_conll"`; do
     awk '{if (substr($1,1,1) !~ /#/ ) print $5" "$4"\t"$6}' $f | \
     sed 's/\/\([.?-]\)/\1/' | \
     sed 's/\(.*\)\t\(.*\)\*\(.*\)/\2(\1)\3/' > "$output_dir/$f_path.parse"
-#    awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
+    # awk '{if(NF && substr($1,1,1) !~ /\(/){print "(TOP(INTJ(UH XX)))"} else {print}}' > "$f.parse"
 done
 
 # Now convert those parses to dependencies

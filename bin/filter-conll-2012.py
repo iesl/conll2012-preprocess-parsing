@@ -6,6 +6,7 @@ from glob import glob
 
 arg_parser = argparse.ArgumentParser(description='Filter CoNLL-12 files by docid and concatenate')
 arg_parser.add_argument('--input_dir', type=str, help='Directory to process')
+arg_parser.add_argument('--input_file', type=str, help='File to process')
 arg_parser.add_argument('--docid_file', type=str, default='', help='List of doc ids to keep')
 args = arg_parser.parse_args()
 
@@ -17,7 +18,10 @@ if args.docid_file != '':
       line = line.strip()
       docid_map.add(line)
 
-fnames = [d for f in os.walk(args.input_dir) for d in glob(os.path.join(f[0], '*.combined'))]
+if args.input_dir:
+  fnames = [d for f in os.walk(args.input_dir) for d in glob(os.path.join(f[0], '*.combined'))]
+else:
+  fnames = [args.input_file]
 
 for fname in fnames:
   with open(fname, 'r') as f:
